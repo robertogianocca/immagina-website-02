@@ -1,8 +1,10 @@
+import { getDataStructure } from "@/utils/portfolio-data-structure";
+
 export default async function CulturaCategories() {
   let portfolioData = null;
   try {
     const response = await fetch(
-      `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_ID}/resources/image/?max_results=500&metadata=true&context=true`,
+      `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_ID}/resources/image/?max_results=500&metadata=true&context=true&prefix=IMMAGINA/Cultura/&type=upload`,
       {
         headers: {
           Authorization: `Basic ${Buffer.from(
@@ -12,7 +14,8 @@ export default async function CulturaCategories() {
       }
     );
     const cloudinaryResponse = await response.json();
-    console.log(cloudinaryResponse);
+    portfolioData = getDataStructure(cloudinaryResponse);
+    // console.log(cloudinaryResponse);
   } catch (error) {
     console.error("Error fetching portfolio data:", error);
   }
@@ -24,6 +27,8 @@ export default async function CulturaCategories() {
       </div>
     );
   }
+
+  //   console.log(portfolioData["IMMAGINA"]["Cultura"]["Portfolio"]["Photography"]);
 
   return (
     <div>
