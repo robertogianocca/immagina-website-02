@@ -2,7 +2,7 @@ import { getDataStructure } from "@/utils/portfolio-data-structure";
 import Link from "next/link";
 import Image from "next/image";
 
-export default async function CulturaCategories({ params }: any) {
+export default async function CulturaCategories({ params }) {
   let portfolioData = null;
 
   try {
@@ -37,7 +37,7 @@ export default async function CulturaCategories({ params }: any) {
   const categoriesFromPath = await params.categories;
 
   // Traverse the portfolio object to find the current category
-  categoriesFromPath.forEach((item: string) => {
+  categoriesFromPath.forEach((item) => {
     currentCategoryPortfolio =
       currentCategoryPortfolio[item.charAt(0).toUpperCase() + item.slice(1)];
   });
@@ -54,7 +54,7 @@ export default async function CulturaCategories({ params }: any) {
   const mappedSubCategories = subCategories.map((item, index) => {
     const formattedItem = item.toLowerCase().replace(/\s+/g, "-");
     const formattedPath = categoriesFromPath
-      .map((category: string) => category.toLowerCase().replace(/\s+/g, "-"))
+      .map((category) => category.toLowerCase().replace(/\s+/g, "-"))
       .join("/");
 
     return (
