@@ -1,4 +1,7 @@
 import { getDataStructure } from "@/utils/portfolio-data-structure";
+import { renameCategory } from "./renameCategory";
+import { Texts } from "./texts";
+import { Captions } from "./captions";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -29,8 +32,13 @@ export default async function CulturaCategories({ params }) {
       </div>
     );
   }
-
   const portfolioCultura = portfolioData["IMMAGINA"]["Cultura"]["Portfolio"];
+
+  /* ---------- TEXT CAPTIONS AND RENAME ---------- */
+
+  Texts(portfolioCultura);
+  Captions(portfolioCultura);
+  renameCategory(portfolioData, "Gotthardbahn", "Gotthardbahn 2016");
 
   const path = await params;
   const categoriesFromPath = path.categories;
@@ -101,7 +109,10 @@ export default async function CulturaCategories({ params }) {
 
         {mappedPath}
         {currentCategoryPortfolio.images.pictures.map((item) => (
-          <Image src={item.url} width={100} height={100} alt="" />
+          <div>
+            <Image src={item.url} width={100} height={100} alt="" />
+            <p>{item.shortDescription}</p>
+          </div>
         ))}
       </div>
     );
