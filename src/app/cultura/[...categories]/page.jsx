@@ -32,19 +32,37 @@ export default async function CulturaCategories({ params }) {
 
   const portfolioCultura = portfolioData["IMMAGINA"]["Cultura"]["Portfolio"];
 
-  let currentCategoryPortfolio = portfolioCultura;
+  const path = await params;
+  const categoriesFromPath = path.categories;
 
-  const categoriesFromPath = await params.categories;
-
-  // Traverse the portfolio object to find the current category
-  categoriesFromPath.forEach((item) => {
-    currentCategoryPortfolio =
-      currentCategoryPortfolio[item.charAt(0).toUpperCase() + item.slice(1)];
-  });
-
+  /* ---------- CURRENT CATEGORY NAME ---------- */
   const currentCategoryName =
     categoriesFromPath[categoriesFromPath.length - 1].charAt(0).toUpperCase() +
     categoriesFromPath[categoriesFromPath.length - 1].slice(1).toLowerCase();
+
+  /* ---------- CURRENT CATEGORY PORTFOLIO TREE ---------- */
+
+  let currentCategoryPortfolio = portfolioCultura;
+  // Traverse the portfolio object to find the current category
+  categoriesFromPath.forEach((item) => {
+    const formattedItem = item
+      .replace("a-s", "a's-s")
+      .split("-") // Split the string into an array of words using "-" as the delimiter
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize each word
+      .join(" "); // Join the array back into a string with spaces
+
+    currentCategoryPortfolio = currentCategoryPortfolio[formattedItem];
+  });
+
+  /* ---------- PATH TREE ---------- */
+
+  const mappedPath = categoriesFromPath.slice(0, -1).map((item, index) => (
+    <p key={index}>
+      <Link href={`/cultura/${categoriesFromPath.slice(0, index + 1).join("/")}`}>{item}</Link>
+    </p>
+  ));
+
+  /* ---------- SUBCATEGORIES - (All the subcategories inside the current)  ---------- */
 
   // Filter out the "pictures" key
   const subCategories = Object.keys(currentCategoryPortfolio).filter(
@@ -52,16 +70,15 @@ export default async function CulturaCategories({ params }) {
   );
 
   const mappedSubCategories = subCategories.map((item, index) => {
-    const formattedItem = item.toLowerCase().replace(/\s+/g, "-");
+    const formattedItem = item.toLowerCase().replace(/\s+/g, "-").replace("a's-s", "a-s");
     const formattedPath = categoriesFromPath
       .map((category) => category.toLowerCase().replace(/\s+/g, "-"))
       .join("/");
-
     return (
       <li key={index}>
         <Link href={`/cultura/${formattedPath}/${formattedItem}`}>
           <div className="w-[200px] h-[200px] bg-blue-600">
-            <h1 className="text-lg">{item}</h1>
+            <h2 className="text-lg">{item}</h2>
             <Image
               src={currentCategoryPortfolio[item].pictures[0].url}
               width={50}
@@ -76,19 +93,27 @@ export default async function CulturaCategories({ params }) {
     );
   });
 
-  const mappedPath = categoriesFromPath.slice(0, -1).map((item, index) => (
-    <p key={index}>
-      <Link href={`/cultura/${categoriesFromPath.slice(0, index + 1).join("/")}`}>{item}</Link>
-    </p>
-  ));
+  if (currentCategoryPortfolio.images) {
+    return (
+      <div>
+        <h1>sono la gallery</h1>
+        <h1 className="text-4xl mb-5">{currentCategoryName}</h1>
 
-  return (
-    <div>
-      <h1 className="text-4xl mb-20">Portfolio Cultura</h1>
-      <p>portfolio</p>
-      {mappedPath}
-      <h1 className="text-4xl mb-5">{currentCategoryName}</h1>
-      <ul className="bg-slate-500 flex flex-row gap-4">{mappedSubCategories}</ul>
-    </div>
-  );
+        {mappedPath}
+        {currentCategoryPortfolio.images.pictures.map((item) => (
+          <Image src={item.url} width={100} height={100} alt="" />
+        ))}
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <h1 className="text-4xl mb-20">Portfolio Cultura</h1>
+        <p>portfolio</p>
+        {mappedPath}
+        <h1 className="text-4xl mb-5">{currentCategoryName}</h1>
+        <ul className="bg-slate-500 flex flex-row gap-4">{mappedSubCategories}</ul>
+      </div>
+    );
+  }
 }
