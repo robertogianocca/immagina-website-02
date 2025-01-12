@@ -8,6 +8,7 @@ export const getDataStructure = (cloudinaryResponse) => {
 
     let longDescription = null;
     let shortDescription = null;
+    const alt = null;
 
     if (context?.custom) {
       longDescription = context.custom.alt || null;
@@ -34,6 +35,7 @@ export const getDataStructure = (cloudinaryResponse) => {
           shortDescription,
           width,
           height,
+          alt,
         });
       }
       currentLevel = currentLevel[folderName];

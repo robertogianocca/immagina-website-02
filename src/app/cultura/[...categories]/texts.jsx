@@ -1,9 +1,30 @@
 export const Texts = (portfolioCultura) => {
   portfolioCultura["Photography"]["Drone"].pictures[0].shortDescription = (
     <div>
-      <p className="bg-red-200">
+      <p>
         I droni hanno cambiato lo sguardo sul mondo come la fotografia nel 1839. IMMAGINA li ha
         usati nel 2016 per la prima volta nei suoi progetti a scopo redazionale, giornalistico.
+      </p>
+    </div>
+  );
+  portfolioCultura["Photography"]["Scultura"].pictures[0].shortDescription = (
+    <div>
+      <p>
+        Ossia "togliere il superfluo", così Michelangelo. Così anche nella fotografia. Con luce di
+        seta e fondali appropriati si evidenziano la materia, volumi e sinuosità impresse nel
+        bronzo, nel marmo o nel gesso modellati dall’artista.
+      </p>
+    </div>
+  );
+  portfolioCultura["Photography"]["Scultura"].pictures[0].alt = "Scultura di Renzo Fontana";
+
+  portfolioCultura["Photography"]["Teatro"].pictures[0].shortDescription = (
+    <div>
+      <p>
+        La vita è fatta della materia dei sogni <span class="italic">(Shakespeare)</span>. Anche una
+        fotografia di teatro deve far sognare. Vietato documentare. Rivelare l’invisibile.
+        Sorprendere registi, attori, spettatori col proprio lavoro. È quanto auspicava Shakespeare,
+        scrivendo.
       </p>
     </div>
   );

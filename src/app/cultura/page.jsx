@@ -1,5 +1,6 @@
 import { getDataStructure } from "@/utils/portfolio-data-structure";
 import Link from "next/link";
+import PortfolioCategoryCard from "@/components/Portfolio/PortfolioCategoryCard/PortfolioCategoryCard";
 
 export default async function Cultura() {
   let portfolioData = null;
@@ -29,20 +30,19 @@ export default async function Cultura() {
     );
   }
 
-  //   console.log(portfolioData["IMMAGINA"]["Cultura"]["Portfolio"]);
+  const portfolioCultura = portfolioData["IMMAGINA"]["Cultura"]["Portfolio"];
 
-  const categoryList = Object.keys(portfolioData["IMMAGINA"]["Cultura"]["Portfolio"]);
-
-  //   console.log(categoryList);
+  const categoryList = Object.keys(portfolioCultura);
 
   const mappedCategoryList = categoryList.map((item, index) => {
     return (
       <li key={index}>
-        <Link href={`/cultura/${item}`}>
-          <div className="w-[200px] h-[200px] bg-blue-600">
-            <p className="">{item}</p>
-          </div>
-        </Link>
+        <PortfolioCategoryCard
+          title={item}
+          shortDescription={portfolioCultura[item].pictures[0].shortDescription}
+          cover={portfolioCultura[item].pictures[0].url}
+          hrefLink={`/cultura/${item}`}
+        />
       </li>
     );
   });
@@ -51,7 +51,9 @@ export default async function Cultura() {
     <div>
       <h1 className="text-4xl mb-20">HomePage Cultura</h1>
       <h1 className="text-3xl mb-10">Portfolio</h1>
-      <ul className="bg-slate-500">{mappedCategoryList}</ul>
+      <ul className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-8 pb-20 text-customBrown">
+        {mappedCategoryList}
+      </ul>
     </div>
   );
 }

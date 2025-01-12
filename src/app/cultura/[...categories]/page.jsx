@@ -4,6 +4,8 @@ import { Texts } from "./texts";
 import { Captions } from "./captions";
 import Link from "next/link";
 import Image from "next/image";
+import Wrapper from "@/components/Wrapper/Wrapper";
+import PortfolioCategoryCard from "@/components/Portfolio/PortfolioCategoryCard/PortfolioCategoryCard";
 
 export default async function CulturaCategories({ params }) {
   let portfolioData = null;
@@ -82,24 +84,21 @@ export default async function CulturaCategories({ params }) {
     const formattedPath = categoriesFromPath
       .map((category) => category.toLowerCase().replace(/\s+/g, "-"))
       .join("/");
+
     return (
       <li key={index}>
-        <Link href={`/cultura/${formattedPath}/${formattedItem}`}>
-          <div className="w-[200px] h-[200px] bg-blue-600">
-            <h2 className="text-lg">{item}</h2>
-            <Image
-              src={currentCategoryPortfolio[item].pictures[0].url}
-              width={50}
-              height={50}
-              alt={item}
-            />
-            <p>{currentCategoryPortfolio[item].pictures[0].shortDescription}</p>
-            <p>{item}</p>
-          </div>
-        </Link>
+        <PortfolioCategoryCard
+          title={item}
+          shortDescription={currentCategoryPortfolio[item].pictures[0].shortDescription}
+          cover={currentCategoryPortfolio[item].pictures[0].url}
+          coverAlt={currentCategoryPortfolio[item].pictures[0].alt}
+          hrefLink={`/cultura/${formattedPath}/${formattedItem}`}
+        />
       </li>
     );
   });
+
+  /* ---------- GALLERY ---------- */
 
   if (currentCategoryPortfolio.images) {
     return (
@@ -117,14 +116,20 @@ export default async function CulturaCategories({ params }) {
       </div>
     );
   } else {
+    /* ---------- CARDS ---------- */
+
     return (
-      <div>
-        <h1 className="text-4xl mb-20">Portfolio Cultura</h1>
-        <p>portfolio</p>
-        {mappedPath}
-        <h1 className="text-4xl mb-5">{currentCategoryName}</h1>
-        <ul className="bg-slate-500 flex flex-row gap-4">{mappedSubCategories}</ul>
-      </div>
+      <Wrapper>
+        <div className="text-customBrown">
+          {/* <h1 className="text-4xl mb-20">Portfolio Cultura</h1> */}
+          {/* <p>portfolio</p> */}
+          {/* {mappedPath} */}
+          {/* <h1 className="text-4xl mb-5">{currentCategoryName}</h1> */}
+          <ul className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4 gap-4 xl:gap-8 pb-20">
+            {mappedSubCategories}
+          </ul>
+        </div>
+      </Wrapper>
     );
   }
 }

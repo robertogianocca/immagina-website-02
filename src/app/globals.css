@@ -2,20 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@layer components {
+  .main-grid {
+    @apply grid grid-cols-3 gap-8;
+  }
+
+  .custom-indent {
+    @apply indent-7;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 15% 85%;
+    grid-template-rows: 100%;
+  }
+
+  .responsive-home {
+    font-size: clamp(0.9rem, 1.1rem, 1.3rem);
+    line-height: clamp(0.8rem, 1.4rem, 2rem);
+  }
+
+  /* 
+  .customLink {
+    @apply text-blue-500 font-bold;
+  } */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom Global CSS */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 60px; /* Adjust this value to match the height of your fixed NavigationBar */
+}
+
+.link a {
+  @apply text-blue-500 font-bold;
+}
+
+h1 {
+  margin: 0px;
+  padding: 0px;
 }
