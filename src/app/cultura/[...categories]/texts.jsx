@@ -1,4 +1,5 @@
 export const Texts = (portfolioCultura) => {
+  /* -------------------- DRONE  -------------------- */
   portfolioCultura["Photography"]["Drone"].pictures[0].shortDescription = (
     <div>
       <p>
@@ -7,6 +8,7 @@ export const Texts = (portfolioCultura) => {
       </p>
     </div>
   );
+  /* -------------------- SCULTURA  -------------------- */
   portfolioCultura["Photography"]["Scultura"].pictures[0].shortDescription = (
     <div>
       <p>
@@ -16,7 +18,11 @@ export const Texts = (portfolioCultura) => {
       </p>
     </div>
   );
+  /* -------------------- SCULTURA - RENZO FONTANA -------------------- */
+
   portfolioCultura["Photography"]["Scultura"].pictures[0].alt = "Scultura di Renzo Fontana";
+
+  /* -------------------- TEATRO -------------------- */
 
   portfolioCultura["Photography"]["Teatro"].pictures[0].shortDescription = (
     <div>

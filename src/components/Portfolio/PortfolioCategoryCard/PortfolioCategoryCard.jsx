@@ -25,7 +25,7 @@ export default function PortfolioCategoryCard({
           <Image src={cover} width={600} height={600} quality={50} alt={coverAlt} />
         </div>
         {/* ---------- SHORT DESCRIPTION MOBILE  ----------  */}
-        <div className="md:hidden text-2xs md:text-xs pb-4 font-semibold opacity-85">
+        <div className="md:hidden text-2xs md:text-xs pb-4 pt-2 font-semibold opacity-85">
           {shortDescription}
         </div>
       </div>

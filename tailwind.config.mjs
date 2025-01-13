@@ -21,7 +21,7 @@ const config = {
         home: "4 / 3",
       },
       fontSize: {
-        "2xs": ["0.694rem", "0.950rem"],
+        "2xs": ["0.8rem", "1.1rem"],
         xs: ["0.868rem", "1.1875rem"],
         sm: [
           "1.042rem",

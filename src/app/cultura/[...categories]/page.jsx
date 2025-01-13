@@ -3,9 +3,9 @@ import { renameCategory } from "./renameCategory";
 import { Texts } from "./texts";
 import { Captions } from "./captions";
 import Link from "next/link";
-import Image from "next/image";
 import Wrapper from "@/components/Wrapper/Wrapper";
 import PortfolioCategoryCard from "@/components/Portfolio/PortfolioCategoryCard/PortfolioCategoryCard";
+import PortfolioGallery from "@/components/Portfolio/PortfolioGallery/PortfolioGallery";
 
 export default async function CulturaCategories({ params }) {
   let portfolioData = null;
@@ -102,21 +102,18 @@ export default async function CulturaCategories({ params }) {
 
   if (currentCategoryPortfolio.images) {
     return (
-      <div>
-        <h1>sono la gallery</h1>
-        <h1 className="text-4xl mb-5">{currentCategoryName}</h1>
-
-        {mappedPath}
-        {currentCategoryPortfolio.images.pictures.map((item) => (
-          <div>
-            <Image src={item.url} width={100} height={100} alt="" />
-            <p>{item.shortDescription}</p>
-          </div>
-        ))}
-      </div>
+      <PortfolioGallery
+        currentCategoryPortfolio={currentCategoryPortfolio}
+        title={currentCategoryName}
+        // shortDescription={currentCategoryPortfolio[item].pictures[0].shortDescription}
+        // cover={currentCategoryPortfolio[item].pictures[0].url}
+        // coverAlt={currentCategoryPortfolio[item].pictures[0].alt}
+        // hrefLink={`/cultura/${formattedPath}/${formattedItem}`}
+        mappedPath={mappedPath}
+      />
     );
   } else {
-    /* ---------- CARDS ---------- */
+    /* ---------- LIST OF CARDS ---------- */
 
     return (
       <Wrapper>
