@@ -4,17 +4,17 @@
 
 @layer components {
   .main-grid {
-    @apply grid grid-cols-3 gap-8;
-  }
-
-  .custom-indent {
-    @apply indent-7;
+    @apply flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4 gap-4 xl:gap-8;
   }
 
   .gallery-grid {
     display: grid;
     grid-template-columns: 15% 85%;
     grid-template-rows: 100%;
+  }
+
+  .custom-indent {
+    @apply indent-7;
   }
 
   .responsive-home {

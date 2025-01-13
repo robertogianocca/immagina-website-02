@@ -6,6 +6,8 @@ import Link from "next/link";
 import Wrapper from "@/components/Wrapper/Wrapper";
 import PortfolioCategoryCard from "@/components/Portfolio/PortfolioCategoryCard/PortfolioCategoryCard";
 import PortfolioGallery from "@/components/Portfolio/PortfolioGallery/PortfolioGallery";
+import PortfolioNavigation from "@/components/Portfolio/PortfolioNavigation/PortfolioNavigation";
+import Triangle from "@/components/Icons/Triangle";
 
 export default async function CulturaCategories({ params }) {
   let portfolioData = null;
@@ -19,7 +21,8 @@ export default async function CulturaCategories({ params }) {
             `${process.env.CLOUDINARY_API_KEY}:${process.env.CLOUDINARY_API_SECRET}`
           ).toString("base64")}`,
         },
-      }
+      },
+      { cache: "force-cache" }
     );
     const cloudinaryResponse = await response.json();
     portfolioData = getDataStructure(cloudinaryResponse);
@@ -65,14 +68,21 @@ export default async function CulturaCategories({ params }) {
   });
 
   /* ---------- PATH TREE ---------- */
+  const pathTree = categoriesFromPath.slice(0, -1);
 
-  const mappedPath = categoriesFromPath.slice(0, -1).map((item, index) => (
-    <p key={index}>
-      <Link href={`/cultura/${categoriesFromPath.slice(0, index + 1).join("/")}`}>{item}</Link>
-    </p>
+  const mappedPath = pathTree.map((item, index) => (
+    <div key={index}>
+      <Link
+        href={`/cultura/${categoriesFromPath.slice(0, index + 1).join("/")}`}
+        className="flex items-center"
+      >
+        <Triangle color={index == 0 ? "border-l-customRed" : "border-l-customGreen"} />
+        <p className="pl-1 pr-2">{item}</p>
+      </Link>
+    </div>
   ));
 
-  /* ---------- SUBCATEGORIES - (All the subcategories inside the current)  ---------- */
+  /* ---------- SUBCATEGORIES CARDS - (All the subcategories inside the current)  ---------- */
 
   // Filter out the "pictures" key
   const subCategories = Object.keys(currentCategoryPortfolio).filter(
@@ -85,6 +95,17 @@ export default async function CulturaCategories({ params }) {
       .map((category) => category.toLowerCase().replace(/\s+/g, "-"))
       .join("/");
 
+    /* ---------- LABELS  ---------- */
+    let labelColor = "";
+    if (categoriesFromPath.length == 1) {
+      labelColor = "border-l-customGreen";
+    }
+    if (categoriesFromPath.length == 2) {
+      labelColor = "border-l-customYellow";
+    }
+
+    /* ---------- CARDS  ---------- */
+
     return (
       <li key={index}>
         <PortfolioCategoryCard
@@ -92,6 +113,7 @@ export default async function CulturaCategories({ params }) {
           shortDescription={currentCategoryPortfolio[item].pictures[0].shortDescription}
           cover={currentCategoryPortfolio[item].pictures[0].url}
           coverAlt={currentCategoryPortfolio[item].pictures[0].alt}
+          labelColor={labelColor}
           hrefLink={`/cultura/${formattedPath}/${formattedItem}`}
         />
       </li>
@@ -113,18 +135,20 @@ export default async function CulturaCategories({ params }) {
       />
     );
   } else {
-    /* ---------- LIST OF CARDS ---------- */
-
+    /* ---------- PORTFOLIO ---------- */
     return (
       <Wrapper>
         <div className="text-customBrown">
-          {/* <h1 className="text-4xl mb-20">Portfolio Cultura</h1> */}
-          {/* <p>portfolio</p> */}
-          {/* {mappedPath} */}
-          {/* <h1 className="text-4xl mb-5">{currentCategoryName}</h1> */}
-          <ul className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4 gap-4 xl:gap-8 pb-20">
-            {mappedSubCategories}
-          </ul>
+          {/* ---------- Portfolio Navigation ---------- */}
+          <PortfolioNavigation
+            title={currentCategoryName}
+            longDescription={currentCategoryPortfolio.pictures[0].longDescription}
+            path={mappedPath}
+          />
+
+          {/* ---------- Card List ---------- */}
+
+          <ul className="main-grid">{mappedSubCategories}</ul>
         </div>
       </Wrapper>
     );

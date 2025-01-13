@@ -13,7 +13,8 @@ export default async function Cultura() {
             `${process.env.CLOUDINARY_API_KEY}:${process.env.CLOUDINARY_API_SECRET}`
           ).toString("base64")}`,
         },
-      }
+      },
+      { cache: "force-cache" }
     );
     const cloudinaryResponse = await response.json();
     portfolioData = getDataStructure(cloudinaryResponse);

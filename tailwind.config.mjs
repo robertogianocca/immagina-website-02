@@ -44,6 +44,8 @@ const config = {
       colors: {
         customWhite: "#F8F8F8",
         customRed: "#dc2626",
+        customGreen: "#16a34a",
+        customYellow: "#fbbf24",
         customBlue: "#0066B3",
         customGrey: "#E4E4E7",
         customBrown: "#653D28",

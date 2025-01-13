@@ -9,10 +9,10 @@ export default function PortfolioGallery({
 }) {
   return (
     <div>
-      <aside className="hidden lg:flex flex-col justify-between w-[300px] fixed h-screen overflow-auto p-5 bg-stone-200 bg-opacity-35 text-base inner-shadow">
+      <aside className="hidden lg:flex flex-col justify-between w-[300px] fixed h-60 overflow-auto p-5 bg-stone-200 bg-opacity-35 text-base inner-shadow text-customBrown">
         {/* <aside className="hidden lg:flex flex-col justify-between w-[300px] fixed h-screen overflow-auto p-5 bg-stone-200 bg-opacity-35 text-base inner-shadow"> */}
         <h1 className="text-4xl mb-5">{title}</h1>
-        {mappedPath}
+        <div className="flex items-center font-courier font-semibold">{mappedPath}</div>
       </aside>
       {currentCategoryPortfolio.images.pictures.map((item) => (
         <div className="mt-[60px] lg:mt-0 lg:ml-[300px] flex-grow p-4 lg:pl-10 pb-10 bg-customWhite">
