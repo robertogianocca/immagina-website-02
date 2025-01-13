@@ -3,6 +3,7 @@ import { renameCategory } from "./renameCategory";
 import { Texts } from "./texts";
 import { Captions } from "./captions";
 import Link from "next/link";
+import NavigationBar from "@/components/NavigationBar/NavigationBar";
 import Wrapper from "@/components/Wrapper/Wrapper";
 import PortfolioCategoryCard from "@/components/Portfolio/PortfolioCategoryCard/PortfolioCategoryCard";
 import PortfolioGallery from "@/components/Portfolio/PortfolioGallery/PortfolioGallery";
@@ -53,6 +54,16 @@ export default async function CulturaCategories({ params }) {
     categoriesFromPath[categoriesFromPath.length - 1].charAt(0).toUpperCase() +
     categoriesFromPath[categoriesFromPath.length - 1].slice(1).toLowerCase();
 
+  /* ---------- TITLE LABEL ---------- */
+
+  let labelTitleColor = "";
+  if (categoriesFromPath.length == 1) {
+    labelTitleColor = "border-l-customRed";
+  }
+  if (categoriesFromPath.length == 2) {
+    labelTitleColor = "border-l-customGreen";
+  }
+
   /* ---------- CURRENT CATEGORY PORTFOLIO TREE ---------- */
 
   let currentCategoryPortfolio = portfolioCultura;
@@ -96,6 +107,7 @@ export default async function CulturaCategories({ params }) {
       .join("/");
 
     /* ---------- LABELS  ---------- */
+
     let labelColor = "";
     if (categoriesFromPath.length == 1) {
       labelColor = "border-l-customGreen";
@@ -137,20 +149,24 @@ export default async function CulturaCategories({ params }) {
   } else {
     /* ---------- PORTFOLIO ---------- */
     return (
-      <Wrapper>
-        <div className="text-customBrown">
-          {/* ---------- Portfolio Navigation ---------- */}
-          <PortfolioNavigation
-            title={currentCategoryName}
-            longDescription={currentCategoryPortfolio.pictures[0].longDescription}
-            path={mappedPath}
-          />
+      <div>
+        <NavigationBar />
+        <Wrapper>
+          <div className="text-customBrown">
+            {/* ---------- Portfolio Navigation ---------- */}
+            <PortfolioNavigation
+              title={currentCategoryName}
+              longDescription={currentCategoryPortfolio.pictures[0].longDescription}
+              path={mappedPath}
+              labelColor={labelTitleColor}
+            />
 
-          {/* ---------- Card List ---------- */}
+            {/* ---------- Card List ---------- */}
 
-          <ul className="main-grid">{mappedSubCategories}</ul>
-        </div>
-      </Wrapper>
+            <ul className="main-grid">{mappedSubCategories}</ul>
+          </div>
+        </Wrapper>
+      </div>
     );
   }
 }

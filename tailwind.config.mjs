@@ -1,8 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 
-// Navigation Height
-const navHeight = "60px";
-
 const config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -50,10 +47,6 @@ const config = {
         customGrey: "#E4E4E7",
         customBrown: "#653D28",
         customBrownRed: "#AE201E",
-      },
-      height: {
-        nav: navHeight,
-        space: `calc(100vh - ${navHeight})`,
       },
       cursor: {
         redPoint: "url(/images/cursore.png), auto",
