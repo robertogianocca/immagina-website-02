@@ -13,7 +13,7 @@ export default function PortfolioCategoryCard({
 }) {
   return (
     <Link href={hrefLink}>
-      <div className="group w-full h-full relative flex flex-col gap-2 lg:gap-y-4 p-5 xl:p-6 bg-zinc-50  shadow-xl shadow-slate-400 hover:shadow-slate-500 transition-shadow">
+      <div className="group w-full h-full relative flex flex-col gap-2 lg:gap-y-4 p-5 xl:p-6 bg-zinc-50  shadow-xl shadow-slate-400">
         <div
           className={`absolute left-0 top-0 pr-1 w-0 h-0 border-l-[28px] border-b-[28px] border-b-transparent border-t-transparent ${labelColor}`}
         ></div>
