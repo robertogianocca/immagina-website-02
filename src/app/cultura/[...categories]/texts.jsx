@@ -113,4 +113,15 @@ export const Texts = (portfolioCultura) => {
       </p>
     </div>
   );
+  /* -------------------- TEATRO - FINZI PASCA -------------------- */
+
+  portfolioCultura["Photography"]["Teatro"]["Finzi Pasca"].pictures[0].shortDescription = (
+    <div>
+      <p>
+        Sin da bambino è affascinato dalle acrobazie. Icaro Daniele fa sul serio. È regista,
+        cresciuto in Ticino, cittadino del mondo. Cirque du Soleil; Olimpiadi; Fête des vignerons.
+        Aida, Carmen, Pagliacci. Čechov e Dalì in compagnia di tanti tanti Rinoceronti ed Elefanti.
+      </p>
+    </div>
+  );
 };

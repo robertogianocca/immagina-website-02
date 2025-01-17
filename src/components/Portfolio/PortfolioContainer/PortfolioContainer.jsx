@@ -10,9 +10,15 @@ import { motion, easeIn } from "framer-motion";
 
 export default function PortfolioContainer({ portfolioCultura, categoriesFromPath }) {
   /* ---------- CURRENT CATEGORY NAME ---------- */
-  const currentCategoryName =
+  let currentCategoryName =
     categoriesFromPath[categoriesFromPath.length - 1].charAt(0).toUpperCase() +
     categoriesFromPath[categoriesFromPath.length - 1].slice(1).toLowerCase();
+
+  currentCategoryName = currentCategoryName
+    .replace("a-s", "a's-s")
+    .split("-") // Split the string into an array of words using "-" as the delimiter
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize each word
+    .join(" "); // Join the array back into a string with spaces
 
   /* ---------- TITLE LABEL ---------- */
 
@@ -53,7 +59,7 @@ export default function PortfolioContainer({ portfolioCultura, categoriesFromPat
     </div>
   ));
 
-  /* ---------- SUBCATEGORIES CARDS - (All the subcategories inside the current)  ---------- */
+  /* ---------- MAP SUBCATEGORIES CARDS - (All the subcategories inside the current)  ---------- */
 
   // Filter out the "pictures" key
   const subCategories = Object.keys(currentCategoryPortfolio).filter(
@@ -111,6 +117,8 @@ export default function PortfolioContainer({ portfolioCultura, categoriesFromPat
     );
   });
 
+  /* ------------------------------ RETURN ------------------------------ */
+
   /* ---------- GALLERY ---------- */
 
   if (currentCategoryPortfolio.images) {
@@ -118,10 +126,8 @@ export default function PortfolioContainer({ portfolioCultura, categoriesFromPat
       <PortfolioGallery
         currentCategoryPortfolio={currentCategoryPortfolio}
         title={currentCategoryName}
-        // shortDescription={currentCategoryPortfolio[item].pictures[0].shortDescription}
-        // cover={currentCategoryPortfolio[item].pictures[0].url}
-        // coverAlt={currentCategoryPortfolio[item].pictures[0].alt}
-        // hrefLink={`/cultura/${formattedPath}/${formattedItem}`}
+        shortDescription={currentCategoryPortfolio.pictures[0].shortDescription}
+        longDescription={currentCategoryPortfolio.pictures[0].longDescription}
         mappedPath={mappedPath}
       />
     );
