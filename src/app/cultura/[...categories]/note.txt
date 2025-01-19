@@ -7,3 +7,41 @@ md	768px	@media (min-width: 768px) { ... }
 lg	1024px	@media (min-width: 1024px) { ... }
 xl	1280px	@media (min-width: 1280px) { ... }
 2xl	1536px	@media (min-width: 1536px) { ... }
+
+
+PORTFOLIO
+
+categoriesFromPath: percorso intero
+pathTree: (percorso meno l'ultimo)
+
+mappedPath:
+JSX per la navigazione
+
+
+currentCategoryName: (--> title)
+Teatro (string)
+
+portfolioCultura:
+
+{
+  Photography: {
+    Drone: {
+      Autostrada: [Object],
+      pictures: [Array],
+      Ticino: [Object],
+      'Gotthardbahn 2016': [Object]
+    },
+    pictures: [ [Object] ],
+    Scultura: { 'Renzo Fontana': [Object], pictures: [Array] },
+    Teatro: {
+      'Carlotta Ikeda': [Object],
+      Dimitri: [Object],
+      'Finzi Pasca': [Object],
+      'Gardi Hutter': [Object],
+      Shondel: [Object],
+      pictures: [Array],
+      "Slava's Snowshow": [Object]
+    }
+  }
+}
+

@@ -84,6 +84,10 @@ export default function PortfolioContainer({ portfolioCultura, categoriesFromPat
 
     /* ---------- CARDS  ---------- */
 
+    // console.log(portfolioCultura);
+    // console.log(currentCategoryName);
+    console.log(mappedPath);
+
     return (
       <motion.li
         key={index}
@@ -129,6 +133,7 @@ export default function PortfolioContainer({ portfolioCultura, categoriesFromPat
         shortDescription={currentCategoryPortfolio.pictures[0].shortDescription}
         longDescription={currentCategoryPortfolio.pictures[0].longDescription}
         mappedPath={mappedPath}
+        back={pathTree}
       />
     );
   } else {

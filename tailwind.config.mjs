@@ -17,6 +17,9 @@ const config = {
         cover: "1920 / 2150",
         home: "4 / 3",
       },
+      backgroundImage: {
+        grainy: "url('/images/grainy-background.png')",
+      },
       fontSize: {
         "2xs": ["0.8rem", "1.1rem"],
         xs: ["0.868rem", "1.1875rem"],
@@ -54,6 +57,7 @@ const config = {
       boxShadow: {
         button: "0px 4px 10px 3px rgb(0 0 0 / 0.1)",
         buttonTwo: "0px 4px 10px 3px rgb(0 0 0 / 0.2)",
+        arrowActive: "0px 4px 10px 3px rgb(0 0 0 / 0.1)",
       },
     },
   },

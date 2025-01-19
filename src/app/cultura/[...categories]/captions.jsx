@@ -32,4 +32,39 @@ export const Captions = (portfolioCultura) => {
     portfolioCultura["Photography"]["Drone"]["Gotthardbahn"].images.pictures,
     captionGottardo
   );
+
+  const captionFinziPasca = [
+    "Donka",
+    "Ritratto Daniele Finzi Pasca",
+    "Nebbia",
+    "Donka",
+    "Verità",
+    "Verità",
+    "Verità",
+    "Nebbia",
+    "Nebbia",
+    "Verità",
+    "Donka",
+    "Nebbia",
+    "Nebbia",
+    "Nebbia",
+    "Nebbia",
+    "Nebbia",
+    "Nebbia",
+    "Nebbia",
+    "Verità",
+    "Nebbia",
+    "Bianco su Bianco",
+    "Nebbia",
+    "Nebbia",
+    "Daniele Finzi Pasca conversa con la compianta moglie Julie Hamelin",
+    "Daniela Finzi Pasca",
+    "Troupe della Compagnia F.P.",
+    "Troupe della Compagnia F.P.",
+  ];
+
+  addCaptions(
+    portfolioCultura["Photography"]["Teatro"]["Finzi Pasca"].images.pictures,
+    captionFinziPasca
+  );
 };

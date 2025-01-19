@@ -1,8 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import Button from "@/components/Buttons/Button";
-import { FaArrowLeft } from "react-icons/fa";
+import PortfolioGallerySideBar from "./PortfolioGallerySideBar/PortfolioGallerySideBar";
 
 export default function PortfolioGallery({
   currentCategoryPortfolio,
@@ -10,35 +9,44 @@ export default function PortfolioGallery({
   shortDescription,
   longDescription,
   mappedPath,
+  back,
 }) {
-  const [currentIndex, setIndex] = useState(1);
-  const [imageQuality, setImageQuality] = useState(2);
-
   const picturesList = currentCategoryPortfolio.images.pictures;
+  const [currentIndex, setIndex] = useState(0);
+  const [imageQuality, setImageQuality] = useState(1);
 
+  //   --------------------------------- THUMBNAILS ---------------------------------
+  function selectThumbnail(index) {
+    setIndex(index);
+  }
   // Image quality setting
   const handleImageLoad = () => {
     setImageQuality(70);
   };
-
+  const mappedImagestwo = picturesList.map((item, index) => {
+    return (
+      <div className="relative aspect-square bg-blue-200" key={index}>
+        <button onClick={() => selectThumbnail(index)}>
+          <Image src={item.url} alt="" quality={1} fill className="object-cover" />
+        </button>
+      </div>
+    );
+  });
   return (
-    <div className="flex h-screen w-full">
+    <div className="flex h-screen w-full bg-customWhite">
       {/* -------------------- SIDEBAR -------------------- */}
-      <aside className="fixed h-full w-[300px] p-5 bg-stone-100 text-customBrown">
-        {/* ------ HOME, BACK BUTTONS, LOGO ------ */}
-        <div>
-          <Button addClass="p-2 text-slate-400">
-            <FaArrowLeft size={25} />
-          </Button>
-        </div>
-        <div className="flex items-center font-courier font-semibold">{mappedPath}</div>
-        <div className="border-t-4 border-red-600">
-          <h1 className="text-lg font-bold font-courier mb-5">{title}</h1>
-          <div className="text-xs">{shortDescription}</div>
-        </div>
-      </aside>
+      <PortfolioGallerySideBar
+        title={title}
+        shortDescription={shortDescription}
+        picturesList={picturesList}
+        mappedPath={mappedPath}
+        setIndex={setIndex}
+        currentIndex={currentIndex}
+        back={back}
+      />
+
       {/* ---------- IMAGE CONTAINER ---------- */}
-      <div className="ml-[300px] p-4 pl-10 pb-10 bg-customWhite">
+      <div className="ml-[300px] p-4 pl-10 pb-10">
         <div className="flex items-center w-full h-full">
           <Image
             priority={true}

@@ -29,6 +29,23 @@
 }
 
 @layer utilities {
+  .bg-grain {
+    position: relative;
+    background-color: inherit;
+  }
+  .bg-grain::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/wkAAwAB/yrA0bYAAAAASUVORK5CYII=");
+    opacity: 0.1; /* Adjust the grain visibility */
+    pointer-events: none;
+    z-index: 1;
+  }
+
   .text-balance {
     text-wrap: balance;
   }
