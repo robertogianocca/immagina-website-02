@@ -8,8 +8,8 @@ export default function PortfolioGallery({
   title,
   shortDescription,
   longDescription,
-  mappedPath,
-  back,
+  pathTree,
+  categoriesFromPath,
 }) {
   const picturesList = currentCategoryPortfolio.images.pictures;
   const [currentIndex, setIndex] = useState(0);
@@ -39,10 +39,10 @@ export default function PortfolioGallery({
         title={title}
         shortDescription={shortDescription}
         picturesList={picturesList}
-        mappedPath={mappedPath}
         setIndex={setIndex}
         currentIndex={currentIndex}
-        back={back}
+        pathTree={pathTree}
+        categoriesFromPath={categoriesFromPath}
       />
 
       {/* ---------- IMAGE CONTAINER ---------- */}

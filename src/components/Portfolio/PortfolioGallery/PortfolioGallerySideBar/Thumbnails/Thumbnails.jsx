@@ -31,18 +31,20 @@ export default function Thumbnails({ picturesList, setIndex, currentIndex }) {
   const mappedThumbnails = currentData.map((item, index) => {
     const globalIndex = (currentThumbPage - 1) * itemsPerPage + index;
     return (
-      <div
-        className={`${currentIndex === globalIndex ? "aspect-square" : "aspect-square opacity-60"}`}
-        key={globalIndex}
-      >
-        <button onClick={() => selectThumbnail(globalIndex)} className="w-full h-full">
+      // <div
+      //   className={`${
+      //     currentIndex === globalIndex ? "aspect-square" : "aspect-square opacity-60"
+      //   } border-solid border-red-500 border-2 rounded-md`}
+      //   key={globalIndex}
+      // >
+      <div className="w-10 h-10 rounded-xl" key={globalIndex}>
+        <button onClick={() => selectThumbnail(globalIndex)} className="w-full h-full relative">
           <Image
-            className="object-cover object-bottom h-full w-full"
             src={item.url}
+            className="object-cover rounded"
             alt="gallery thumbnail"
             loading="eager"
-            width={30}
-            height={30}
+            fill
             quality={2}
           />
         </button>
@@ -63,8 +65,8 @@ export default function Thumbnails({ picturesList, setIndex, currentIndex }) {
 
   return (
     <div className="mb-3">
-      <div className="w-full grid grid-cols-5 gap-2">{mappedThumbnails}</div>
-      {totalPages > 1 && <div className="flex justify-center mt-2">{mappedDots}</div>}
+      <div className="grid grid-cols-5 gap-y-3">{mappedThumbnails}</div>
+      {totalPages > 1 && <div className="flex justify-center mt-4">{mappedDots}</div>}
     </div>
   );
 }

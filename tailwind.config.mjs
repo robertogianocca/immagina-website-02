@@ -55,9 +55,18 @@ const config = {
         redPoint: "url(/images/cursore.png), auto",
       },
       boxShadow: {
-        button: "0px 4px 10px 3px rgb(0 0 0 / 0.1)",
-        buttonTwo: "0px 4px 10px 3px rgb(0 0 0 / 0.2)",
+        button: "0px 2.8px 1px 4px rgb(0 0 0 / 0.15)",
+        buttonHover: "0px 3px 1px 4px rgb(0 0 0 / 0.25)",
+        buttonActive: "0px 2px 1px 3px rgb(0 0 0 / 0.25)",
         arrowActive: "0px 4px 10px 3px rgb(0 0 0 / 0.1)",
+      },
+      // boxShadow: {
+      //   button: "0px 3px 1px 4px rgb(0 0 0 / 0.15)",
+      //   buttonTwo: "0px 4px 10px 3px rgb(0 0 0 / 0.25)",
+      //   arrowActive: "0px 4px 10px 3px rgb(0 0 0 / 0.1)",
+      // },
+      transitionDuration: {
+        4000: "300ms",
       },
     },
   },

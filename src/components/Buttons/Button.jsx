@@ -8,17 +8,17 @@ export default function Button({ children, addClass, onClick }) {
       animate={{
         rotate: 0,
         scale: 1,
-        transition: { duration: 0.7, ease: "easeInOut" }, // Return timing
+        transition: { duration: 0.4, ease: "easeInOut" }, // Return timing
       }}
       whileHover={{
-        scale: 1.05,
-        transition: { duration: 0.7, bounce: 0.3 },
+        scale: 1.07,
+        transition: { duration: 0.4, bounce: 0.3 },
       }}
       whileTap={{
-        scale: 0.9,
-        transition: { duration: 0.3 },
+        scale: 0.98,
+        transition: { duration: 0.1 },
       }}
-      className={`bg-stone-50  text-slate-400 hover:text-slate-500 shadow-button rounded-md flex items-center justify-center hover:shadow-buttonTwo transition-shadow active:text-slate-500 active:shadow-buttonTwo ${addClass}`}
+      className={`bg-stone-50  text-slate-400 transition-shadow duration-4000 shadow-button rounded-md flex items-center justify-center hover:shadow-buttonHover active:shadow-buttonActive  ${addClass}`}
       onClick={onClick}
     >
       {children}
