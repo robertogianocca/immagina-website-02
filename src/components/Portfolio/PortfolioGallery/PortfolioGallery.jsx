@@ -38,6 +38,7 @@ export default function PortfolioGallery({
       <PortfolioGallerySideBar
         title={title}
         shortDescription={shortDescription}
+        longDescription={longDescription}
         picturesList={picturesList}
         setIndex={setIndex}
         currentIndex={currentIndex}

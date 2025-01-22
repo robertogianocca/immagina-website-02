@@ -31,13 +31,12 @@ export default function Thumbnails({ picturesList, setIndex, currentIndex }) {
   const mappedThumbnails = currentData.map((item, index) => {
     const globalIndex = (currentThumbPage - 1) * itemsPerPage + index;
     return (
-      // <div
-      //   className={`${
-      //     currentIndex === globalIndex ? "aspect-square" : "aspect-square opacity-60"
-      //   } border-solid border-red-500 border-2 rounded-md`}
-      //   key={globalIndex}
-      // >
-      <div className="w-10 h-10 rounded-xl" key={globalIndex}>
+      <div
+        className={`${
+          currentIndex === globalIndex ? "aspect-square" : "aspect-square opacity-60"
+        } w-10 h-10 rounded-xl`}
+        key={globalIndex}
+      >
         <button onClick={() => selectThumbnail(globalIndex)} className="w-full h-full relative">
           <Image
             src={item.url}
@@ -64,7 +63,7 @@ export default function Thumbnails({ picturesList, setIndex, currentIndex }) {
   ));
 
   return (
-    <div className="mb-3">
+    <div className="h-[250px] mb-3">
       <div className="grid grid-cols-5 gap-y-3">{mappedThumbnails}</div>
       {totalPages > 1 && <div className="flex justify-center mt-4">{mappedDots}</div>}
     </div>
