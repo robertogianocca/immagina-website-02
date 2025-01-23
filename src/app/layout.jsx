@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Courier_Prime } from "next/font/google";
 import { Inter } from "next/font/google";
+import RouteChange from "@/components/Portfolio/PortfolioGallery/RouteChange";
 
 // Globals font
 const main = Inter({
@@ -25,6 +26,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${courier.variable} ${main.variable}`}>
+      {/* <RouteChange /> */}
       <body className="font-main bg-slate-50">{children}</body>
     </html>
   );

@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import PortfolioGallerySideBar from "./PortfolioGallerySideBar/PortfolioGallerySideBar";
+import PortfolioGalleryMobileHeader from "./PortfolioGalleryMobileHeader/PortfolioGalleryMobileHeader";
 
 export default function PortfolioGallery({
   currentCategoryPortfolio,
@@ -23,31 +24,48 @@ export default function PortfolioGallery({
   const handleImageLoad = () => {
     setImageQuality(70);
   };
-  const mappedImagestwo = picturesList.map((item, index) => {
+  const mobileGallery = picturesList.map((item, index) => {
     return (
-      <div className="relative aspect-square bg-blue-200" key={index}>
-        <button onClick={() => selectThumbnail(index)}>
-          <Image src={item.url} alt="" quality={1} fill className="object-cover" />
-        </button>
-      </div>
+      <Image
+        key={index}
+        className="pb-10"
+        src={picturesList[index].url}
+        alt={picturesList[index].alt}
+        width={picturesList[index].width}
+        height={picturesList[index].height}
+        sizes="(max-width: 1200px) 100vw, 70vw"
+        priority={true}
+        quality={imageQuality}
+        onLoad={handleImageLoad}
+      />
     );
   });
   return (
     <div className="flex h-screen w-full bg-customWhite">
       {/* -------------------- SIDEBAR -------------------- */}
-      <PortfolioGallerySideBar
-        title={title}
-        shortDescription={shortDescription}
-        longDescription={longDescription}
-        picturesList={picturesList}
-        setIndex={setIndex}
-        currentIndex={currentIndex}
-        pathTree={pathTree}
-        categoriesFromPath={categoriesFromPath}
-      />
-
-      {/* ---------- IMAGE CONTAINER ---------- */}
-      <div className="ml-[300px] p-4 pl-10 pb-10">
+      <div className="hidden md:block">
+        <PortfolioGallerySideBar
+          title={title}
+          shortDescription={shortDescription}
+          longDescription={longDescription}
+          picturesList={picturesList}
+          setIndex={setIndex}
+          currentIndex={currentIndex}
+          pathTree={pathTree}
+          categoriesFromPath={categoriesFromPath}
+        />
+      </div>
+      {/* -------------------- MOBILE HEADER -------------------- */}
+      <div className="md:hidden text-customBrown">
+        <PortfolioGalleryMobileHeader
+          title={title}
+          shortDescription={shortDescription}
+          longDescription={longDescription}
+          pathTree={pathTree}
+        />
+      </div>
+      {/* ---------- IMAGE CONTAINER DESKTOP---------- */}
+      <div className="hidden md:block ml-[300px] p-4 pl-10 pb-10">
         <div className="flex items-center w-full h-full">
           <Image
             priority={true}
@@ -61,6 +79,11 @@ export default function PortfolioGallery({
             sizes="(max-width: 1200px) 100vw, 70vw"
           />
         </div>
+      </div>
+      {/* ---------- IMAGE LIST MOBILE ---------- */}
+      <div className="flex flex-col md:hidden mt-[100px] p-3">
+        <div className="text-2xs font-semibold text-customBrown">{shortDescription}</div>
+        <div>{mobileGallery}</div>
       </div>
     </div>
   );

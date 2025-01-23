@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Button from "@/components/Buttons/Button";
 import ArrowButton from "@/components/Buttons/ArrowButton";
@@ -22,6 +23,16 @@ export default function PortfolioGallerySideBar({
   currentIndex,
   categoriesFromPath,
 }) {
+  //   --------------------------------- FULL SCREEN ---------------------------------
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const handleFullscreen = () => {
+    if (!isFullscreen) {
+      document.documentElement.requestFullscreen();
+    } else {
+      document.exitFullscreen();
+    }
+  };
+
   //   --------------------------------- READ MORE ---------------------------------
   const [isVisible, setIsVisible] = useState(true);
 
@@ -165,9 +176,9 @@ export default function PortfolioGallerySideBar({
               </Button>
             </div>
             {/* Testo */}
-            <p className="link text-sm lg:text-base text-customBrown lg:font-semibold">
+            <div className="link text-sm lg:text-base text-customBrown lg:font-semibold">
               {longDescription}
-            </p>
+            </div>
           </div>
         </div>
       </div>

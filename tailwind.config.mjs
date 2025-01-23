@@ -10,6 +10,7 @@ const config = {
   theme: {
     extend: {
       screens: {
+        md: "769px",
         xs: "412px",
         "3xl": "1750px",
       },
