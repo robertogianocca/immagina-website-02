@@ -90,7 +90,7 @@ export default function PortfolioContainer({ portfolioCultura, categoriesFromPat
         className="origin-top-left"
         initial={{ rotate: 6 }}
         animate={{ rotate: 0 }}
-        transition={{ duration: 2, delay: 2, type: "spring", bounce: 0.2 }}
+        transition={{ duration: 2, delay: 0, type: "spring", bounce: 0.2 }}
       >
         <motion.div
           animate={{
@@ -142,7 +142,7 @@ export default function PortfolioContainer({ portfolioCultura, categoriesFromPat
             className="text-customBrown"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 2 }}
+            transition={{ duration: 1, delay: 0 }}
           >
             {/* ---------- Portfolio Navigation ---------- */}
             <PortfolioNavigation

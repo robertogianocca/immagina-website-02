@@ -16,30 +16,36 @@ export default function PortfolioGallery({
   const [currentIndex, setIndex] = useState(0);
   const [imageQuality, setImageQuality] = useState(1);
 
-  //   --------------------------------- THUMBNAILS ---------------------------------
-  function selectThumbnail(index) {
-    setIndex(index);
-  }
   // Image quality setting
   const handleImageLoad = () => {
     setImageQuality(70);
   };
+
   const mobileGallery = picturesList.map((item, index) => {
     return (
-      <Image
-        key={index}
-        className="pb-10"
-        src={picturesList[index].url}
-        alt={picturesList[index].alt}
-        width={picturesList[index].width}
-        height={picturesList[index].height}
-        sizes="(max-width: 1200px) 100vw, 70vw"
-        priority={true}
-        quality={imageQuality}
-        onLoad={handleImageLoad}
-      />
+      <div key={index}>
+        <Image
+          src={picturesList[index].url}
+          alt={picturesList[index].alt}
+          width={picturesList[index].width}
+          height={picturesList[index].height}
+          sizes="(max-width: 1200px) 100vw, 70vw"
+          priority={true}
+          quality={imageQuality}
+          onLoad={handleImageLoad}
+        />
+        {/* ------ Caption ------ */}
+        <div
+          className={`h-[40px] bg-customGrey px-2 flex items-center ${
+            !picturesList[index].shortDescription && "hidden"
+          }`}
+        >
+          <p className="text-xs italic font-semibold">{picturesList[index].shortDescription}</p>
+        </div>
+      </div>
     );
   });
+
   return (
     <div className="flex h-screen w-full bg-customWhite">
       {/* -------------------- SIDEBAR -------------------- */}
@@ -80,10 +86,11 @@ export default function PortfolioGallery({
           />
         </div>
       </div>
-      {/* ---------- IMAGE LIST MOBILE ---------- */}
-      <div className="flex flex-col md:hidden mt-[100px] p-3">
+      {/* ---------- MOBILE GALLERY ---------- */}
+      <div className="flex flex-col md:hidden mt-[70px] p-3">
+        <h1 className="text-lg font-bold font-courier pt-3">{title}</h1>
         <div className="text-2xs font-semibold text-customBrown">{shortDescription}</div>
-        <div>{mobileGallery}</div>
+        <div className="flex flex-col gap-y-8">{mobileGallery}</div>
       </div>
     </div>
   );
