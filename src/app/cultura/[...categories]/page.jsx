@@ -4,9 +4,8 @@ import { Captions } from "./captions";
 import { renameCategory } from "./renameCategory";
 import PortfolioContainer from "@/components/Portfolio/PortfolioContainer/PortfolioContainer";
 
-export default async function CulturaCategories({ params }) {
-  let portfolioData = null;
-
+// Fetch data for the portfolio
+async function fetchPortfolioData() {
   try {
     const response = await fetch(
       `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_ID}/resources/image/?max_results=500&metadata=true&context=true&prefix=IMMAGINA/Cultura/&type=upload`,
@@ -16,14 +15,47 @@ export default async function CulturaCategories({ params }) {
             `${process.env.CLOUDINARY_API_KEY}:${process.env.CLOUDINARY_API_SECRET}`
           ).toString("base64")}`,
         },
-      },
-      { cache: "force-cache" }
+        cache: "force-cache",
+      }
     );
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch portfolio data");
+    }
+
     const cloudinaryResponse = await response.json();
-    portfolioData = getDataStructure(cloudinaryResponse);
+    const portfolioData = getDataStructure(cloudinaryResponse);
+
+    // Apply transformations
+    Texts(portfolioData["IMMAGINA"]["Cultura"]["Portfolio"]);
+    Captions(portfolioData["IMMAGINA"]["Cultura"]["Portfolio"]);
+    renameCategory(portfolioData, "Gotthardbahn", "Gotthardbahn 2016");
+
+    return portfolioData;
   } catch (error) {
     console.error("Error fetching portfolio data:", error);
+    return null;
   }
+}
+
+// Generate static paths for all categories
+export async function generateStaticParams() {
+  const portfolioData = await fetchPortfolioData();
+
+  if (!portfolioData) {
+    return [];
+  }
+
+  const categories = Object.keys(portfolioData["IMMAGINA"]["Cultura"]["Portfolio"]);
+
+  return categories.map((category) => ({
+    categories: [category.toLowerCase().replace(/\s+/g, "-")], // Format for URL
+  }));
+}
+
+// Main component
+export default async function CulturaCategories({ params }) {
+  const portfolioData = await fetchPortfolioData();
 
   if (!portfolioData) {
     return (
@@ -32,16 +64,10 @@ export default async function CulturaCategories({ params }) {
       </div>
     );
   }
+
   const portfolioCultura = portfolioData["IMMAGINA"]["Cultura"]["Portfolio"];
-
-  /* ---------- TEXT CAPTIONS AND RENAME ---------- */
-
-  Texts(portfolioCultura);
-  Captions(portfolioCultura);
-  renameCategory(portfolioData, "Gotthardbahn", "Gotthardbahn 2016");
-
-  const path = await params;
-  const categoriesFromPath = path.categories;
+  const par = await params;
+  const categoriesFromPath = await par.categories;
 
   return (
     <PortfolioContainer
