@@ -1,15 +1,12 @@
 "use client";
-import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import { useState } from "react";
 import Link from "next/link";
 import Button from "@/components/Buttons/Button";
 import ArrowButton from "@/components/Buttons/ArrowButton";
 import Thumbnails from "./Thumbnails/Thumbnails";
 import { FaArrowLeft } from "react-icons/fa";
 import { TiHome } from "react-icons/ti";
-import { MdOutlineFullscreen } from "react-icons/md";
 import { IoMdCloseCircle } from "react-icons/io";
-
 import Triangle from "@/components/Icons/Triangle";
 import { motion } from "framer-motion";
 
@@ -23,16 +20,6 @@ export default function PortfolioGallerySideBar({
   currentIndex,
   categoriesFromPath,
 }) {
-  //   --------------------------------- FULL SCREEN ---------------------------------
-  const [isFullscreen, setIsFullscreen] = useState(false);
-  const handleFullscreen = () => {
-    if (!isFullscreen) {
-      document.documentElement.requestFullscreen();
-    } else {
-      document.exitFullscreen();
-    }
-  };
-
   //   --------------------------------- READ MORE ---------------------------------
   const [isVisible, setIsVisible] = useState(true);
 

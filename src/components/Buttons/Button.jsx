@@ -18,7 +18,7 @@ export default function Button({ children, addClass, onClick }) {
         scale: 0.98,
         transition: { duration: 0.1 },
       }}
-      className={`bg-stone-50  text-slate-400 transition-shadow duration-4000 shadow-button rounded-md flex items-center justify-center hover:shadow-buttonHover active:shadow-buttonActive  ${addClass}`}
+      className={`h-full bg-stone-50 text-slate-400 transition-shadow duration-4000 shadow-button rounded-md flex items-center justify-center hover:shadow-buttonHover active:shadow-buttonActive  ${addClass}`}
       onClick={onClick}
     >
       {children}

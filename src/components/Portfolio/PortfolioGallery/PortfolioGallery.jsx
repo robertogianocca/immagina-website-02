@@ -49,7 +49,7 @@ export default function PortfolioGallery({
   return (
     <div className="flex h-screen w-full bg-customWhite">
       {/* -------------------- SIDEBAR -------------------- */}
-      <div className="hidden md:block">
+      <div className="hidden lg:block">
         <PortfolioGallerySideBar
           title={title}
           shortDescription={shortDescription}
@@ -62,7 +62,7 @@ export default function PortfolioGallery({
         />
       </div>
       {/* -------------------- MOBILE HEADER -------------------- */}
-      <div className="md:hidden text-customBrown">
+      <div className="lg:hidden text-customBrown">
         <PortfolioGalleryMobileHeader
           title={title}
           shortDescription={shortDescription}
@@ -71,7 +71,7 @@ export default function PortfolioGallery({
         />
       </div>
       {/* ---------- IMAGE CONTAINER DESKTOP---------- */}
-      <div className="hidden md:block ml-[300px] p-4 pl-10 pb-10">
+      <div className="hidden lg:block ml-[300px] p-4 pl-10 pb-10">
         <div className="flex items-center w-full h-full">
           <Image
             priority={true}
@@ -87,9 +87,11 @@ export default function PortfolioGallery({
         </div>
       </div>
       {/* ---------- MOBILE GALLERY ---------- */}
-      <div className="flex flex-col md:hidden mt-[70px] p-3">
-        <h1 className="text-lg font-bold font-courier pt-3">{title}</h1>
-        <div className="text-2xs font-semibold text-customBrown">{shortDescription}</div>
+      <div className="flex flex-col lg:hidden mt-[60px] p-3 pb-[100px]">
+        <h1 className="text-xl sm:text-3xl font-bold font-courier text-customRed pb-2">{title}</h1>
+        <div className="text-2xs sm:text-base font-semibold text-customBrown">
+          {shortDescription}
+        </div>
         <div className="flex flex-col gap-y-8">{mobileGallery}</div>
       </div>
     </div>
