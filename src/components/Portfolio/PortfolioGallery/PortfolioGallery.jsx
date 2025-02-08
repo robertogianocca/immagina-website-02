@@ -46,6 +46,15 @@ export default function PortfolioGallery({
     );
   });
 
+  const coverTitle =
+    currentIndex === 0 ? (
+      <div className="lg:absolute lg:left-0 lg:right-0 lg:top-0 mb-2 lg:m-auto lg:p-2 lg:aspect-cover lg:h-full">
+        <h1 className="font-courier font-bold text-2xl lg:text-4xl text-red-600">{title}</h1>
+      </div>
+    ) : (
+      ""
+    );
+
   return (
     <div className="flex h-screen w-full bg-customWhite">
       {/* -------------------- SIDEBAR -------------------- */}
@@ -72,18 +81,21 @@ export default function PortfolioGallery({
       </div>
       {/* ---------- IMAGE CONTAINER DESKTOP---------- */}
       <div className="hidden lg:block ml-[300px] p-4 pl-10 pb-10">
-        <div className="flex items-center w-full h-full">
-          <Image
-            priority={true}
-            src={picturesList[currentIndex].url}
-            alt={picturesList[currentIndex].alt || { title }}
-            width={picturesList[currentIndex].width}
-            height={picturesList[currentIndex].height}
-            className="object-contain max-w-full max-h-full "
-            onLoad={handleImageLoad}
-            quality={imageQuality}
-            sizes="(max-width: 1200px) 100vw, 70vw"
-          />
+        <div className="relative w-full h-full">
+          {coverTitle}
+          <div className="flex items-center w-full h-full">
+            <Image
+              priority={true}
+              src={picturesList[currentIndex].url}
+              alt={picturesList[currentIndex].alt || { title }}
+              width={picturesList[currentIndex].width}
+              height={picturesList[currentIndex].height}
+              className="object-contain max-w-full max-h-full "
+              onLoad={handleImageLoad}
+              quality={imageQuality}
+              sizes="(max-width: 1200px) 100vw, 70vw"
+            />
+          </div>
         </div>
       </div>
       {/* ---------- MOBILE GALLERY ---------- */}

@@ -140,9 +140,9 @@ export default function PortfolioContainer({ portfolioCultura, categoriesFromPat
         <Wrapper>
           <motion.div
             className="text-customBrown"
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 1 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0 }}
+            transition={{ duration: 2, delay: 0 }}
           >
             {/* ---------- Portfolio Navigation ---------- */}
             <PortfolioNavigation
