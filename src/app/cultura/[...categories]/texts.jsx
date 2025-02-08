@@ -1,7 +1,11 @@
 export const Texts = (portfolioCultura) => {
   /* -------------------- DRONE  -------------------- */
-  portfolioCultura["Photography"]["Drone"].pictures[0].alt = "Ferrovia del Gottardo - Göschenen";
-  portfolioCultura["Photography"]["Drone"].pictures[0].shortDescription = (
+
+  const drone = portfolioCultura["Photography"]["Drone"].pictures[0];
+
+  drone.alt = "Ferrovia del Gottardo - Göschenen";
+
+  drone.shortDescription = (
     <div>
       <p>
         I droni hanno cambiato lo sguardo sul mondo come la fotografia nel 1839. IMMAGINA li ha
@@ -10,8 +14,120 @@ export const Texts = (portfolioCultura) => {
     </div>
   );
 
+  drone.longDescription = (
+    <div>
+      <p>
+        IMMAGINA ha capito sin da principio la potenzialità dell’uso di droni per creare immagini da
+        un punto prospettico nuovo. In effetti nel 2016 ha realizzato il libro sulla Gotthardbahn
+        (ultimi giorni della gloriosa ferrovia di montagna). Filmati e fotografie realizzate con i
+        droni necessitano di una grande esperienza poiché il punto di ripresa non ha riferimenti
+        conosciuti. L’operatore diventa quasi un angelo che vede tutto ma deve far delle scelte
+        estetiche usando il linguaggio tradizionale. Si torna alla capacità di narrare.
+      </p>
+    </div>
+  );
+
+  /* -------------------- DRONE - AUTOSTRADA -------------------- */
+
+  const autostrada = portfolioCultura["Photography"]["Drone"]["Autostrada"].pictures[0];
+
+  autostrada.alt = "Autostrada A2 - Colrerio";
+
+  autostrada.shortDescription = (
+    <div>
+      <p>
+        1962: primo cantiere dell’autostrada. Cento km attraversano il Ticino. Il nastro di asfalto
+        ha disegnato il nuovo paesaggio Ticino. L’uso del drone rivela le eleganti traiettorie
+        iscritte nella natura, quasi fossero opera di un artista d’arte ambientale (Land art).
+      </p>
+    </div>
+  );
+
+  autostrada.longDescription = (
+    <div>
+      <p>
+        Questo genere di manufatti, ponti, gallerie, ripari fonici, asfalto, tanto asfalto,
+        eccetera, eccetera, esigono lavori di manutenzione (e miglioria) che a volte intralciano il
+        flusso armonioso del traffico. Dalla galleria del San Gottardo transitano 5 milioni di
+        automobili e 900’000 autocarri. A Grancia transitano giornalmente in media 75'000 veicoli.
+        Frequenti gli incidenti. L’autostrada è la spina dorsale dell’economia locale, sviluppata a
+        ridosso della rete viaria ”rapida”.
+      </p>
+    </div>
+  );
+
+  /* -------------------- DRONE - GOTTHARDBAHN -------------------- */
+
+  const gotthardbahn = portfolioCultura["Photography"]["Drone"]["Gotthardbahn"].pictures[0];
+
+  gotthardbahn.alt = "Gottharbahn - Intschi-Aelmen";
+
+  gotthardbahn.shortDescription = (
+    <div>
+      <p>
+        Il 2 dicembre 2016 sarebbe transitato ufficialmente l’ultimo treno sulla Gotthardbahn.
+        IMMAGINA ha documentato le ultime settimane di percorrenza sul tracciato “panoramico”.
+        Fotografato esclusivamente con droni. Una prima assoluta.
+      </p>
+    </div>
+  );
+
+  autostrada.longDescription = (
+    <div>
+      <p>
+        Nel 2016 la DJI mette sul mercato il primo drone “popolare” (riferendosi al prezzo) con una
+        camera ad alto standard qualitativo. Con questo nuovo strumento Immagina ha approfittato per
+        cogliere un evento storico: l’abbandono del transito sulla storica tratta ferroviaria del
+        Gottardo (con le sue celebri gallerie elicoidali e la galleria Airolo-Göschenen). Si stava
+        inaugurando Alptransit (tunnel di 52 km). Con il drone abbiamo documentato nell’arco di 60
+        giorni (ottobre- novembre 2016) 78 fotografie la via ferrata Biasca-Erstfeld dalla
+        prospettiva di un uccello, o per i più poeti, dalla prospettiva di un angelo. Il lavoro è
+        stato pubblicato in libro, (Panorama Gottardo, Ed Casagrande, 2018 in 4 lingue, 78
+        fotografie). Scrivendoci (contact@immagina.ch) potete ordinarne una o più copie al costo
+        unitario di CHF 38.- + CHF 8.- di spese postali.
+      </p>
+    </div>
+  );
+
+  /* -------------------- DRONE - TICINO -------------------- */
+
+  const ticino = portfolioCultura["Photography"]["Drone"]["Ticino"].pictures[0];
+
+  ticino.alt = "Autostrada A2 - Colrerio";
+
+  ticino.shortDescription = (
+    <div>
+      <p>
+        Il 2 dicembre 2016 sarebbe transitato ufficialmente l’ultimo treno sulla Gotthardbahn.
+        IMMAGINA ha documentato le ultime settimane di percorrenza sul tracciato “panoramico”.
+        Fotografato esclusivamente con droni. Una prima assoluta.
+      </p>
+    </div>
+  );
+
+  autostrada.longDescription = (
+    <div>
+      <p>
+        Nel 2016 la DJI mette sul mercato il primo drone “popolare” (riferendosi al prezzo) con una
+        camera ad alto standard qualitativo. Con questo nuovo strumento Immagina ha approfittato per
+        cogliere un evento storico: l’abbandono del transito sulla storica tratta ferroviaria del
+        Gottardo (con le sue celebri gallerie elicoidali e la galleria Airolo-Göschenen). Si stava
+        inaugurando Alptransit (tunnel di 52 km). Con il drone abbiamo documentato nell’arco di 60
+        giorni (ottobre- novembre 2016) 78 fotografie la via ferrata Biasca-Erstfeld dalla
+        prospettiva di un uccello, o per i più poeti, dalla prospettiva di un angelo. Il lavoro è
+        stato pubblicato in libro, (Panorama Gottardo, Ed Casagrande, 2018 in 4 lingue, 78
+        fotografie). Scrivendoci (contact@immagina.ch) potete ordinarne una o più copie al costo
+        unitario di CHF 38.- + CHF 8.- di spese postali.
+      </p>
+    </div>
+  );
+
   /* -------------------- SCULTURA  -------------------- */
-  portfolioCultura["Photography"]["Scultura"].pictures[0].shortDescription = (
+  const scultura = portfolioCultura["Photography"]["Scultura"].pictures[0];
+
+  scultura.alt = "Scultura di Renzo Fontana";
+
+  scultura.shortDescription = (
     <div>
       <p>
         Ossia "togliere il superfluo", così Michelangelo. Così anche nella fotografia. Con luce di
@@ -20,14 +136,64 @@ export const Texts = (portfolioCultura) => {
       </p>
     </div>
   );
+
+  scultura.longDescription = (
+    <div>
+      <p>
+        Fotografia di scultura: ossia togliere il superfluo. La scultura monumentale in genere è
+        disturbata da elementi circostanti "fastidiosi". Ragion per cui si istallano se del caso,
+        dei fondi che sottolineano le intenzioni dell’artista e tolgono il disturbo. Se trasportata
+        nello studio fotografico, la scultura viene accarezzata da raffinate luci, da pannelli
+        riflettori argentati. O pannelli neri - riflettenti, why not, per sottrarre la luce,
+        esaltarne la forma e la materia.
+      </p>
+    </div>
+  );
   /* -------------------- SCULTURA - RENZO FONTANA -------------------- */
 
-  portfolioCultura["Photography"]["Scultura"].pictures[0].alt = "Scultura di Renzo Fontana";
+  const fontana = portfolioCultura["Photography"]["Scultura"]["Renzo Fontana"].pictures[0];
+
+  fontana.alt = "Scultura di Renzo Fontana";
+
+  fontana.shortDescription = (
+    <div>
+      <p>
+        Animali da cortile: Galli, galline, oche, pavoni. Tori, mucche, vitelli, capre. E la volpe
+        ladra con la gallina nelle fauci. Aironi e pesci. Questo il mondo di gessi e bronzi creati
+        dal Fontana, eccentrico scultore di Balerna.
+      </p>
+    </div>
+  );
+
+  fontana.longDescription = (
+    <div>
+      <p>
+        A cent’anni dalla nascita, il Comune di Balerna ha incaricato IMMAGINA ad allestire una
+        mostra fotografica - e invito - per commemorare il suo "cittadino onorato", l’artista Renzo
+        Fontana.
+        <p className="custom-indent">
+          30 immagini grandezza manifesto sono state realizzate ed esposte nel bellissimo parco
+          della Nunziatura. Le sculture ubicate in parchi pubblici e privati, non potendo esser
+          trasportate dovettero essere esposte per mezzo di fotografie. Fotografie che, secondo i
+          criteri di Adriano Heitmann, fotografo, non solo documentano ma rivelano lo spirito
+          dell’artista e del <span class="italic">Genius loci</span> che le ospitano.
+        </p>
+        <p className="custom-indent">
+          Why not? Sorprendentemente la foto preferita dal pubblico è stata la gallina di bronzo,
+          alta 30 centimetri, sorpresa in compagnia della gatta rossa e distratta e superba e
+          altezzosa come solo sanno atteggiarsi i felini. Micia: una foto ricordo ti era dovuta…
+        </p>
+      </p>
+    </div>
+  );
 
   /* -------------------- TEATRO -------------------- */
-  portfolioCultura["Photography"]["Teatro"].pictures[0].alt =
-    "Spettacolo di Finzi Pasca - La verità";
-  portfolioCultura["Photography"]["Teatro"].pictures[0].shortDescription = (
+
+  const teatro = portfolioCultura["Photography"]["Teatro"].pictures[0];
+
+  teatro.alt = "Spettacolo di Finzi Pasca - La verità";
+
+  teatro.shortDescription = (
     <div>
       <p>
         La vita è fatta della materia dei sogni <span className="italic">(Shakespeare)</span>. Anche
@@ -37,7 +203,8 @@ export const Texts = (portfolioCultura) => {
       </p>
     </div>
   );
-  portfolioCultura["Photography"]["Teatro"].pictures[0].longDescription = (
+
+  teatro.longDescription = (
     <div>
       <p>
         Fotografia di teatro: ossia la vita è fatta dalla materia dei sogni{" "}
@@ -52,11 +219,14 @@ export const Texts = (portfolioCultura) => {
       </p>
     </div>
   );
+
   /* -------------------- TEATRO - CARLOTTA IKEDA -------------------- */
-  portfolioCultura["Photography"]["Teatro"]["Carlotta Ikeda"].pictures[0].alt =
-    "Carlotta Ikeda con sedia di Mario botta";
-  ("Spettacolo di Finzi Pasca - La verità");
-  portfolioCultura["Photography"]["Teatro"]["Carlotta Ikeda"].pictures[0].shortDescription = (
+
+  const carlotta = portfolioCultura["Photography"]["Teatro"]["Carlotta Ikeda"].pictures[0];
+
+  carlotta.alt = "Carlotta Ikeda con sedia di Mario botta";
+
+  carlotta.shortDescription = (
     <div>
       <p>
         Carlotta Ikea, prima danzatrice Botoh giapponese, ha accettato l’invito che le ho rivolto di
@@ -65,7 +235,8 @@ export const Texts = (portfolioCultura) => {
       </p>
     </div>
   );
-  portfolioCultura["Photography"]["Teatro"]["Carlotta Ikeda"].pictures[0].longDescription = (
+
+  carlotta.longDescription = (
     <div>
       <p>
         V’era l’esigenza di presentare con un linguaggio non “pubblicitario” i mobili dell’arch.
@@ -81,11 +252,30 @@ export const Texts = (portfolioCultura) => {
       </p>
     </div>
   );
+
   /* -------------------- TEATRO - SLAVA'S SNOWSHOW -------------------- */
 
-  portfolioCultura["Photography"]["Teatro"]["Slava's Snowshow"].pictures[0].shortDescription = (
+  const slava = portfolioCultura["Photography"]["Teatro"]["Slava's Snowshow"].pictures[0];
+
+  slava.alt = "Scena Slava's Snowshow";
+
+  slava.shortDescription = (
     <div>
-      <p className="italic">Love is at the heart of clownery.</p>
+      <p>
+        La Prima ebbe luogo a Mosca nell’ottobre del 1993. Lo{" "}
+        <span class="italic">Slava's Snowshow</span> è lo spettacolo creato e messo in scena
+        dall'artista russo Slava Polunin. Poesia sulle orme di{" "}
+        <span class="italic">
+          Puškin, Gogol, Čechov, Kandinsky, Chagall, Ėjzenštejn, Tarkovskij, Stravinskij, Prokofiev.
+        </span>
+      </p>
+    </div>
+  );
+  slava.longDescription = (
+    <div>
+      <p>
+        <span className="italic">Love is at the heart of clownery.</span>
+      </p>
       <br></br>
       <p>
         La Prima ebbe luogo a Mosca nell’ottobre del 1993. Lo
@@ -115,7 +305,9 @@ export const Texts = (portfolioCultura) => {
   );
   /* -------------------- TEATRO - FINZI PASCA -------------------- */
 
-  portfolioCultura["Photography"]["Teatro"]["Finzi Pasca"].pictures[0].shortDescription = (
+  const pasca = portfolioCultura["Photography"]["Teatro"]["Finzi Pasca"].pictures[0];
+
+  pasca.shortDescription = (
     <div>
       <p>
         Sin da bambino è affascinato dalle acrobazie. Icaro Daniele fa sul serio. È regista,
@@ -124,7 +316,8 @@ export const Texts = (portfolioCultura) => {
       </p>
     </div>
   );
-  portfolioCultura["Photography"]["Teatro"]["Finzi Pasca"].pictures[0].longDescription = (
+
+  pasca.longDescription = (
     <div>
       <p>
         Sin da bambino è affascinato dalle acrobazie. Icaro Daniele fa sul serio. È regista,

@@ -1,7 +1,8 @@
 import Link from "next/link";
-import logoRed from "../../../public/images/logo/logo-immagina.svg";
 import Logo from "../Logo/Logo";
 import HamburgerIcon from "../HamburgerIcon/HamburgerIcon";
+
+const logoRed = "/images/logo/logo-immagina.svg"; // Reference from the public directory
 
 const menuItems = ["Portfolio", "Team"];
 
