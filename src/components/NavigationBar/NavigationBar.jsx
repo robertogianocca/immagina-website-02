@@ -8,15 +8,13 @@ const menuItems = ["Portfolio", "Team"];
 export default function NavigationBar({ color, menuColor, bgColor }) {
   return (
     <nav
-      className={`w-full h-[60px] fixed left-0 top-0 lg:main-grid  px-4 lg:px-6 xl:pl-14 xl:pr-24 z-50`}
+      className={`w-full h-[60px] fixed left-0 top-0 lg:main-grid  px-4 lg:px-6 xl:pl-14 xl:pr-24 z-50 bg-customWhite`}
     >
-      <div className="flex w-full justify-between pt-2">
+      <div className="flex w-full h-10 justify-between pt-2">
         {/* ---------- LOGO CULTURA ---------- */}
         <Link href="/cultura">
           <Logo logo={logoRed} />
-          <p className="text-customRed opacity-100 cursor-default font-courier font-bold">
-            cultura
-          </p>
+          <p className="text-customRed font-courier font-bold">cultura</p>
         </Link>
         {/* ---------- HAMBURGE ICON ---------- */}
         <HamburgerIcon className={`lg:hidden text-customRed`} />
