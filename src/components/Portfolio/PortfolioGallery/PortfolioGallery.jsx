@@ -10,7 +10,7 @@ export default function PortfolioGallery({
   shortDescription,
   longDescription,
   pathTree,
-  categoriesFromPath,
+  categoriesFromPath = null,
 }) {
   const picturesList = currentCategoryPortfolio.images.pictures;
   const [currentIndex, setIndex] = useState(0);
