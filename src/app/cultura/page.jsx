@@ -56,7 +56,7 @@ export default async function Cultura() {
         {/* ---------- PORTFOLIO SECTION ---------- */}
         <section id="portfolio" className="min-h-space pb-10 pt-6 xl:pt-10">
           <h2 className="text-3xl xl:text-4xl font-courier font-bold mb-6">Portfolio</h2>
-          <div className="grid grid-cols-3 gap-8">
+          <div className="main-grid">
             <PortfolioCategoryCard
               title="Photography"
               hrefLink="/cultura/photography"

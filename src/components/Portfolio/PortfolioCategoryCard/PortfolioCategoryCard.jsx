@@ -15,7 +15,7 @@ export default function PortfolioCategoryCard({
 }) {
   return (
     <motion.li
-      className="origin-top-left"
+      className="origin-top-left list-none"
       initial={{ rotate: 3 }}
       animate={{ rotate: 0 }}
       transition={{ duration: 2, delay: 0, type: "spring", bounce: 0.2 }}
