@@ -2,10 +2,9 @@ import Button from "@/components/Buttons/Button";
 import { IoMdCloseCircle } from "react-icons/io";
 
 export default function TextBox({ isVisible, toggleTextBox, longDescription }) {
-  console.log("TEXT BOX");
   return (
     <div
-      className={`flex items-center justify-center fixed top-[60px] lg:top-0 lg:left-[300px] right-0 bottom-0 p-0 lg:p-10  bg-opacity-100 bg-white ${
+      className={`flex items-center justify-center fixed top-[60px] lg:top-0 lg:left-[300px] right-0 bottom-0 p-0 lg:p-10 bg-opacity-100 bg-white  ${
         isVisible ? "hidden" : "block"
       }`}
     >

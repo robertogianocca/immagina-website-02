@@ -29,7 +29,7 @@ export default async function Cultura() {
       />
       <Wrapper>
         {/* ---------- INTRO SECTION ---------- */}
-        <section id="home" className="h-space sm:h-full md:min-h-space overflow-hidden">
+        <section id="home" className="h-space lg:min-h-[calc(100vh-60px)] overflow-hidden">
           <IntroSection
             text={
               <>

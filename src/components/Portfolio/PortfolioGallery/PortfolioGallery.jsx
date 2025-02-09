@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import PortfolioGallerySideBar from "./PortfolioGallerySideBar/PortfolioGallerySideBar";
-import PortfolioGalleryMobileHeader from "./PortfolioGalleryMobileHeader/PortfolioGalleryMobileHeader";
+import PortfolioGalleryMobileHeader from "@/components/Portfolio/PortfolioGallery/PortfolioGalleryMobileHeader/PortfolioGalleryMobileHeader";
 
 export default function PortfolioGallery({
   currentCategoryPortfolio,

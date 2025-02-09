@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-export default function Button({ children, addClass, onClick }) {
+export default function Button({ children, addClass, onClick = () => {} }) {
   return (
     <motion.button
       animate={{

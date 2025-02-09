@@ -8,22 +8,32 @@ import Navigation from "@/components/Portfolio/PortfolioGallery/PortfolioGallery
 import Thumbnails from "@/components/Portfolio/PortfolioGallery/PortfolioGallerySideBar/Thumbnails";
 import { motion } from "framer-motion";
 
+interface typeProps {
+  title: string;
+  shortDescription: string;
+  longDescription: string;
+  picturesList: string[];
+  categoriesFromPath: string[];
+  pathTree: string[];
+  currentIndex: number;
+  setIndex: (index: number) => void;
+}
+
 export default function PortfolioGallerySideBar({
-  title,
-  shortDescription,
-  longDescription,
+  title = "No title available",
+  shortDescription = "No short description available",
+  longDescription = "No long description available",
   picturesList,
-  pathTree,
-  setIndex,
-  currentIndex,
   categoriesFromPath,
-}) {
+  pathTree,
+  currentIndex,
+  setIndex,
+}: typeProps) {
   //   --------------------------------- READ MORE ---------------------------------
   const [isVisible, setIsVisible] = useState(true);
 
   function toggleTextBox() {
     setIsVisible((prevState) => !prevState);
-    console.log(isVisible);
   }
 
   return (
@@ -35,7 +45,7 @@ export default function PortfolioGallerySideBar({
     >
       {/* ------ HOME, BACK BUTTONS, LOGO ------ */}
 
-      <BackBar pathTree={pathTree} categoriesFromPath={categoriesFromPath} />
+      <BackBar pathTree={pathTree} />
 
       {/* ------ PATH, TITLE, DESCRIPTION ------ */}
 

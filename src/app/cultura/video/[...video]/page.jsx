@@ -1,8 +1,9 @@
 import VideoGallery from "@/components/Portfolio/VideoGallery/VideoGallery";
 import { videoDatabaseCultura } from "../video-database-cultura";
 
-export default function videoGalleries({ params, setIsVisible }) {
-  const categoriesFromPath = params.categories;
+export default async function videoGalleries({ params, setIsVisible }) {
+  const par = await params;
+  const categoriesFromPath = await par.categories;
 
   let currentElement = "";
 

@@ -1,14 +1,6 @@
 import Link from "next/link";
 import Button from "@/components/Buttons/Button";
 
-interface GalleryHeaderProps {
-  title: string;
-  path: string[];
-  shortDescription: string;
-  longDescription: string;
-  setIsVisible: (prevState: boolean) => boolean;
-}
-
 export default function Header({
   title,
   path,
@@ -16,7 +8,7 @@ export default function Header({
   shortDescription,
   longDescription,
   setIsVisible,
-}: GalleryHeaderProps) {
+}) {
   // --------------------------------- PATHS ---------------------------------
 
   const pathList = path.slice(0, -1).map((item, index) => {

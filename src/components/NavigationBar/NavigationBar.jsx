@@ -18,7 +18,7 @@ export default function NavigationBar({ color, menuColor, bgColor }) {
           <p className="text-customRed font-courier font-bold">cultura</p>
         </Link>
         {/* ---------- HAMBURGE ICON ---------- */}
-        <HamburgerIcon className={`lg:hidden text-customRed`} />
+        {/* <HamburgerIcon className={`lg:hidden text-customRed`} /> */}
       </div>
       {/* <div className="flex flex-row items-center col-span-2 justify-between">
         <div><MenuDesktop menuItems={menuItems} menuColor={menuColor} /></div>

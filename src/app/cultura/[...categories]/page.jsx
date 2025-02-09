@@ -43,8 +43,6 @@ export default async function CulturaCategories({ params }) {
   Captions(portfolioData["IMMAGINA"]["Cultura"]["Portfolio"]);
   renameCategory(portfolioData, "Gotthardbahn", "Gotthardbahn 2016");
 
-  console.log(portfolioCultura["Photography"].pictures);
-
   return (
     <PortfolioContainer
       portfolioCultura={portfolioCultura}
