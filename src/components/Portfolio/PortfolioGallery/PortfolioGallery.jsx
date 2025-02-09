@@ -80,10 +80,10 @@ export default function PortfolioGallery({
         />
       </div>
       {/* ---------- IMAGE CONTAINER DESKTOP---------- */}
-      <div className="hidden lg:block ml-[300px] p-4 pl-10 pb-10">
+      <div className="hidden lg:block ml-[300px] p-4 pl-10 pb-10 z-10">
         <div className="relative w-full h-full">
           {coverTitle}
-          <div className="flex items-center w-full h-full">
+          <div className={`flex items-center w-full h-full ${currentIndex === 0 && "pt-[6rem]"}`}>
             <Image
               priority={true}
               src={picturesList[currentIndex].url}
