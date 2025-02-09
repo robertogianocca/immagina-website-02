@@ -1,52 +1,25 @@
 // HOME CULTURA
 
-import { revalidatePath } from "next/cache";
-import { getDataStructure } from "@/utils/portfolio-data-structure";
+import fetchPortfolioData from "@/utils/fetchPortfolioData";
 import NavigationBar from "@/components/NavigationBar/NavigationBar";
 import Wrapper from "@/components/Wrapper/Wrapper";
 import IntroSection from "@/components/Sections/IntroSection/IntroSection";
-import PortfolioSection from "@/components/Sections/PortfolioSection/PortfolioSection";
+// import PortfolioSection from "@/components/Sections/PortfolioSection/PortfolioSection";
 import TeamSection from "@/components/Sections/TeamSection/TeamSection";
 import PortfolioCategoryCard from "@/components/Portfolio/PortfolioCategoryCard/PortfolioCategoryCard";
 
 export default async function Cultura() {
-  let portfolioData = null;
-  try {
-    const response = await fetch(
-      `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_ID}/resources/image/?max_results=500&metadata=true&context=true`,
-      {
-        headers: {
-          Authorization: `Basic ${Buffer.from(
-            `${process.env.CLOUDINARY_API_KEY}:${process.env.CLOUDINARY_API_SECRET}`
-          ).toString("base64")}`,
-        },
-      }
-    );
-
-    const cloudinaryResponse = await response.json();
-    portfolioData = getDataStructure(cloudinaryResponse);
-  } catch (error) {
-    console.error("Error fetching portfolio data:", error);
-  }
+  const portfolioData = await fetchPortfolioData("Cultura");
 
   if (!portfolioData) {
     return (
-      <div className="bg-customGrey h-screen">
-        <div className="text-customBrown bg-customGrey w-[50%] flex m-auto justify-center pt-[20%]">
-          <p className="font-semibold text-xs md:text-lg">
-            Errore nel caricamento dei dati. Riprova più tardi.
-          </p>
-        </div>
+      <div>
+        <p>Errore nel caricamento dei dati. Riprova più tardi.</p>
       </div>
     );
   }
 
   const portfolioCultura = portfolioData["IMMAGINA"]["Cultura"]["Portfolio"];
-
-  // revalidatePath("/cultura");
-
-  // const categoryList = Object.keys(portfolioData.cultura.portfolio);
-
   return (
     <div className="text-customBrown">
       <NavigationBar
