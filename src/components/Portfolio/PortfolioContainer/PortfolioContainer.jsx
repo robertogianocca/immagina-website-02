@@ -85,54 +85,21 @@ export default function PortfolioContainer({ portfolioCultura, categoriesFromPat
     /* ---------- CARDS  ---------- */
 
     return (
-      <motion.li
-        key={index}
-        className="origin-top-left"
-        initial={{ rotate: 6 }}
-        animate={{ rotate: 0 }}
-        transition={{ duration: 2, delay: 0, type: "spring", bounce: 0.2 }}
-      >
-        <motion.div
-          animate={{
-            rotate: 0,
-            scale: 1,
-            transition: { duration: 0.7, ease: "easeInOut" }, // Return timing
-          }}
-          whileHover={{
-            rotate: 1.6,
-            scale: 1.03,
-            transition: { duration: 0.7, bounce: 0.3 },
-          }}
-        >
-          <PortfolioCategoryCard
-            title={item}
-            shortDescription={currentCategoryPortfolio[item].pictures[0].shortDescription}
-            cover={currentCategoryPortfolio[item].pictures[0].url}
-            coverAlt={currentCategoryPortfolio[item].pictures[0].alt}
-            labelColor={labelColor}
-            hrefLink={`/cultura/${formattedPath}/${formattedItem}`}
-          />
-        </motion.div>
-      </motion.li>
+      <PortfolioCategoryCard
+        key={index + item}
+        title={item}
+        shortDescription={currentCategoryPortfolio[item].pictures[0].shortDescription}
+        cover={currentCategoryPortfolio[item].pictures[0].url}
+        coverAlt={currentCategoryPortfolio[item].pictures[0].alt}
+        labelColor={labelColor}
+        hrefLink={`/cultura/${formattedPath}/${formattedItem}`}
+      />
     );
   });
 
   /* ------------------------------ RETURN ------------------------------ */
 
-  /* ---------- GALLERY ---------- */
-
-  if (currentCategoryPortfolio.images) {
-    return (
-      <PortfolioGallery
-        currentCategoryPortfolio={currentCategoryPortfolio}
-        title={currentCategoryName}
-        shortDescription={currentCategoryPortfolio.pictures[0].shortDescription}
-        longDescription={currentCategoryPortfolio.pictures[0].longDescription}
-        pathTree={pathTree}
-        categoriesFromPath={categoriesFromPath}
-      />
-    );
-  } else {
+  if (!currentCategoryPortfolio.images) {
     /* ---------- PORTFOLIO ---------- */
     return (
       <div>
@@ -140,9 +107,9 @@ export default function PortfolioContainer({ portfolioCultura, categoriesFromPat
         <Wrapper>
           <motion.div
             className="text-customBrown"
-            initial={{ opacity: 1 }}
+            initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 2, delay: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
           >
             {/* ---------- Portfolio Navigation ---------- */}
             <PortfolioNavigation
@@ -153,11 +120,22 @@ export default function PortfolioContainer({ portfolioCultura, categoriesFromPat
             />
 
             {/* ---------- Card List ---------- */}
-
-            <motion.ul className="main-grid">{mappedSubCategories}</motion.ul>
+            <ul className="main-grid">{mappedSubCategories}</ul>
           </motion.div>
         </Wrapper>
       </div>
+      /* ---------- GALLERY ---------- */
+    );
+  } else {
+    return (
+      <PortfolioGallery
+        currentCategoryPortfolio={currentCategoryPortfolio}
+        title={currentCategoryName}
+        shortDescription={currentCategoryPortfolio.pictures[0].shortDescription}
+        longDescription={currentCategoryPortfolio.pictures[0].longDescription}
+        pathTree={pathTree}
+        categoriesFromPath={categoriesFromPath}
+      />
     );
   }
 }
