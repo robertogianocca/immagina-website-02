@@ -171,18 +171,18 @@ export const Texts = (portfolioCultura) => {
         A cent’anni dalla nascita, il Comune di Balerna ha incaricato IMMAGINA ad allestire una
         mostra fotografica - e invito - per commemorare il suo "cittadino onorato", l’artista Renzo
         Fontana.
-        <p className="custom-indent">
-          30 immagini grandezza manifesto sono state realizzate ed esposte nel bellissimo parco
-          della Nunziatura. Le sculture ubicate in parchi pubblici e privati, non potendo esser
-          trasportate dovettero essere esposte per mezzo di fotografie. Fotografie che, secondo i
-          criteri di Adriano Heitmann, fotografo, non solo documentano ma rivelano lo spirito
-          dell’artista e del <span class="italic">Genius loci</span> che le ospitano.
-        </p>
-        <p className="custom-indent">
-          Why not? Sorprendentemente la foto preferita dal pubblico è stata la gallina di bronzo,
-          alta 30 centimetri, sorpresa in compagnia della gatta rossa e distratta e superba e
-          altezzosa come solo sanno atteggiarsi i felini. Micia: una foto ricordo ti era dovuta…
-        </p>
+      </p>
+      <p className="custom-indent">
+        30 immagini grandezza manifesto sono state realizzate ed esposte nel bellissimo parco della
+        Nunziatura. Le sculture ubicate in parchi pubblici e privati, non potendo esser trasportate
+        dovettero essere esposte per mezzo di fotografie. Fotografie che, secondo i criteri di
+        Adriano Heitmann, fotografo, non solo documentano ma rivelano lo spirito dell’artista e del 
+        <span className="italic">Genius loci</span> che le ospitano.
+      </p>
+      <p className="custom-indent">
+        Why not? Sorprendentemente la foto preferita dal pubblico è stata la gallina di bronzo, alta
+        30 centimetri, sorpresa in compagnia della gatta rossa e distratta e superba e altezzosa
+        come solo sanno atteggiarsi i felini. Micia: una foto ricordo ti era dovuta…
       </p>
     </div>
   );
@@ -263,9 +263,9 @@ export const Texts = (portfolioCultura) => {
     <div>
       <p>
         La Prima ebbe luogo a Mosca nell’ottobre del 1993. Lo{" "}
-        <span class="italic">Slava's Snowshow</span> è lo spettacolo creato e messo in scena
+        <span className="italic">Slava's Snowshow</span> è lo spettacolo creato e messo in scena
         dall'artista russo Slava Polunin. Poesia sulle orme di{" "}
-        <span class="italic">
+        <span className="italic">
           Puškin, Gogol, Čechov, Kandinsky, Chagall, Ėjzenštejn, Tarkovskij, Stravinskij, Prokofiev.
         </span>
       </p>

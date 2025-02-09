@@ -44,14 +44,14 @@ export default function PortfolioCategoryCard({
             <h2 className="font-courier font-bold text-lg xl:text-xl">{title}</h2>
             {/* ---------- SHORT DESCRIPTION DESKTOP  ----------  */}
             <div className="hidden md:block md:min-h-[7rem] lg:min-h-[7rem] xl:min-h-[7rem] text-xs xl:text-xs pb-4 font-semibold opacity-85">
-              <p className="line-clamp-5">{shortDescription}</p>
+              {shortDescription}
             </div>
             <div className="group-hover:saturate-[1.1] flex flex-col gap-2 lg:gap-4">
               <Image src={cover} width={600} height={600} quality={50} alt={coverAlt} />
             </div>
             {/* ---------- SHORT DESCRIPTION MOBILE  ----------  */}
             <div className="md:hidden min-h-[7rem] text-2xs pb-2 pt-2 font-semibold opacity-85">
-              <p className="line-clamp-6">{shortDescription}</p>
+              {shortDescription}
             </div>
           </div>
         </Link>
