@@ -12,8 +12,8 @@ export const videoDatabaseCultura = [
       "https://player.vimeo.com/video/676793805?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
   },
   {
-    title: "Memorie Future - Laveggio",
-    link: "video/memorie-future",
+    title: "Memorie Future Laveggio",
+    link: "video/memorie-future-laveggio",
     description:
       "In passato il Laveggio scorreva indisturbato da Stabio a Capolago dove versava le sue acque. Anni ’60: boom economico. Il Laveggio diventa una cloaca. Si edifica il Parco industriale Laveggio. Arrivano il traffico, strade, ferrovie, gas-dotti, elettrodotti,  parcheggi, spedizionieri, doganieri eccetera eccetera. Anno 2023: si inaugura il neo-Parco ecologico. Forse sarebbe più appropriato parlare di Riserva del Laveggio, luogo riservato ai superstiti, flora e fauna, nativi. Un po’ come le celebri riserve dell’America del Nord…  Nel suo splendore un sentiero, discontinuo in vero, costeggia autostrada, treno, attraversa le zone industriali, le zone agricole e s’arrende a Riva San Vitale dove il fiume sfocia, in gran fretta, nel Ceresio.",
     shortDescription:
@@ -26,7 +26,7 @@ export const videoDatabaseCultura = [
 
   {
     title: "Met Parachute MCR",
-    link: "video/met-parachute-mrc",
+    link: "video/met-parachute-mcr",
     description: "",
     shortDescription:
       "Sport pubblicitario di Achille Mauri per i caschi Parachute della ditta MET di Lecco. Location:  Scozia Ligura e Lecco. Riprese con il drone, correzione cromatica e postproduzione di Roberto Gianocca/IMMAGINA. ",

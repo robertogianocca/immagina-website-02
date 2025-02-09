@@ -7,53 +7,63 @@ import Wrapper from "@/components/Wrapper/Wrapper";
 import NavigationBar from "@/components/NavigationBar/NavigationBar";
 import PortfolioTitleNavigation from "@/components/Portfolio/PortfolioTitleNavigation/PortfolioTitleNavigation";
 import PortfolioCategoryCard from "@/components/Portfolio/PortfolioCategoryCard/PortfolioCategoryCard";
+import PortfolioContainer from "@/components/Portfolio/PortfolioContainer/PortfolioContainer";
 
-const logoRed = "images/logo/logo-immagina.svg";
+const portfolioCultura = {
+  Video: {
+    CARIE: {
+      pictures: [
+        {
+          url: "https://res.cloudinary.com/immagina/image/upload/v1732543369/IMMAGINA/Video/thumb-carie_dbccnk.jpg",
+          public_id: "IMMAGINA/Cultura/Portfolio/Photography/Fotografia_-_Cover_igvggl",
+          longDescription:
+            "CHo pensato che l’arrampicata potesse ridare dignità a queste montagne ferite”. Con queste parole Marzio introduce il progetto Carie. Carie è un progetto crossmediale indipendente a cura di Achille Mauri, Marzio Nardi e Federico Ravassard. Narra di Carrara e delle sue cave. Il film scava nel passato,  presente e futuro di Carrara. Protagonisti gli arrampicatori, minatori, geologi, ambientalisti di tutta Italia. Tuono Blu, (nickname di Roberto Gianocca/IMMAGINA) è stato integrato del team quale cameraman/dronista, collaborato nella postproduzione e nell’animazione 3D del logo.",
+          shortDescription:
+            "Film sulle cave di Carrara. Un film realizzato con un gruppo di appassionati (della vita: cavisti, geologi, ambientalisti, scalatori, cineasti) hanno dialogato con la cava del Michelangelo, interrogandosi su passato presente e futuro del celebre marmo.",
+          width: 800,
+          height: 640,
+          alt: "Image",
+        },
+      ],
+    },
+    pictures: [[Object]],
+    "Memorie Future Laveggio": {
+      pictures: [
+        {
+          url: "https://res.cloudinary.com/immagina/image/upload/v1724931246/IMMAGINA/Video/thumb-memorie-future_a1w2in.jpg",
+          public_id: "IMMAGINA/Cultura/Portfolio/Photography/Fotografia_-_Cover_igvggl",
+          longDescription:
+            "In passato il Laveggio scorreva indisturbato da Stabio a Capolago dove versava le sue acque. Anni ’60: boom economico. Il Laveggio diventa una cloaca. Si edifica il Parco industriale Laveggio. Arrivano il traffico, strade, ferrovie, gas-dotti, elettrodotti,  parcheggi, spedizionieri, doganieri eccetera eccetera. Anno 2023: si inaugura il neo-Parco ecologico. Forse sarebbe più appropriato parlare di Riserva del Laveggio, luogo riservato ai superstiti, flora e fauna, nativi. Un po’ come le celebri riserve dell’America del Nord…  Nel suo splendore un sentiero, discontinuo in vero, costeggia autostrada, treno, attraversa le zone industriali, le zone agricole e s’arrende a Riva San Vitale dove il fiume sfocia, in gran fretta, nel Ceresio.",
+          shortDescription:
+            "In passato il Laveggio scorreva indisturbato da Stabio a Capolago dove versava le sue limpide acque. Anni ’60: boom economico. Il Laveggio diventa una cloaca. Si edifica il Parco industriale Laveggio. Anno 2023: si inaugura il parco del Laveggio…",
+          width: 800,
+          height: 640,
+          alt: "Image",
+        },
+      ],
+    },
+    "Met Parachute MCR": {
+      pictures: [
+        {
+          url: "https://res.cloudinary.com/immagina/image/upload/v1724931249/IMMAGINA/Video/thumb-met-parachute_zigmgf.jpg",
+          public_id: "IMMAGINA/Cultura/Portfolio/Photography/Fotografia_-_Cover_igvggl",
+          longDescription:
+            "Sport pubblicitario di Achille Mauri per i caschi Parachute della ditta MET di Lecco. Location:  Scozia Ligura e Lecco. Riprese con il drone, correzione cromatica e postproduzione di Roberto Gianocca/IMMAGINA.",
+          shortDescription:
+            "Sport pubblicitario di Achille Mauri per i caschi Parachute della ditta MET di Lecco. Location:  Scozia Ligura e Lecco. Riprese con il drone, correzione cromatica e postproduzione di Roberto Gianocca/IMMAGINA.",
+          width: 800,
+          height: 640,
+          alt: "Image",
+        },
+      ],
+    },
+  },
+};
 
 export default function VideoPage() {
-  const mappedVideo = videoDatabaseCultura.map((item, index) => {
-    return (
-      <div key={index}>
-        <PortfolioCategoryCard
-          hrefLink={item.link}
-          title={item.title}
-          shortDescription={item.shortDescription}
-          cover={item.cover}
-          transformedCategoriesFromPath={item.link}
-          addClass="border-l-green-600"
-        />
-      </div>
-    );
-  });
-
-  const subCategoryList = [];
-
-  videoDatabaseCultura.map((item, index) => {
-    subCategoryList.push(item.title);
-  });
-
   return (
     <>
-      <NavigationBar
-        color="text-customRed"
-        menuColor="text-customRed hover:border-b-2 hover:border-customRed"
-        bgColor="bg-customWhite lg:shadow-xl lg:shadow-slate-200"
-      />
-      <Wrapper>
-        <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-8 pb-20 text-customBrown">
-          <PortfolioTitleNavigation
-            currentCategory="Video"
-            currentCategoryDescription=""
-            categoryColors="border-l-red-600"
-            subCategoryColors="border-l-green-600"
-            hamburgerColors="text-green-600"
-          />
-          <div className="hidden lg:block col-span-2">
-            <p className="hidden xl:block text-base font-semibold col-span-2">{`Produciamo corto- e lungo- metraggi. Produciamo di preferenza documentari per artisti, e manifestazioni culturali.  Anche matrimoni per gente simpatica. Per imprenditori simpatici e con umore produciamo volontieri spot pubblicitari, simpatici e … naturalmente ci integriamo volentieri a un più esteso team per prestar servizi quali riprese, riprese con droni, montaggio, color balancing, prise de son, produzione di colonne sonore, eccetera eccetera.`}</p>
-          </div>
-          {mappedVideo}
-        </div>
-      </Wrapper>
+      <PortfolioContainer portfolioCultura={portfolioCultura} categoriesFromPath={["video"]} />
     </>
   );
 }
